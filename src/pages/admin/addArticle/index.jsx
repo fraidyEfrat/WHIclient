@@ -47,6 +47,8 @@ const AddArticle = () => {
       <TextField onChange={(e) => { setContent(e.target.value) }} id="outlined-basic" label="content" variant="outlined" ></TextField><br></br><br></br>;
       <Uploud></Uploud>
       
+      {/* <TextField onChange={(e) => { setContent(e.target.value) }} id="outlined-basic" label="content" variant="outlined" ></TextField><br></br><br></br>; */}
+      <Uploud setContent={setContent} content={content}></Uploud>
       <TextField onChange={(e) => { setPicture(e.target.value) }} id="outlined-basic" label="picture" variant="outlined" /><br></br><br></br>;
       <TextField onChange={(e) => { setAuthor(e.target.value) }} id="outlined-basic" label="author" variant="outlined" /><br></br><br></br>;
       <Button onClick={handleAddArticle}>add article</Button>

@@ -27,7 +27,7 @@ const AddFile = async (idFolder)=>{
 //     }
 // }
 
-const Uploader = ({ file, setFile, setName, label }) => {
+const Uploader = ({content, setContent, file, setFile, setName, label }) => {
   const [selectFile, setSelectFile] = useState();
   const [selected, setSelected] = useState(false);
   const selectedFunc = async () => {
@@ -48,7 +48,7 @@ console.log("here2!");
           console.log(data.location)
           setFile(data.location)
           setName(data.location)
-          
+          setContent(data.name)
           }
           console.log("here3!");
       }).catch(err => {
@@ -62,6 +62,7 @@ console.log("here2!");
   const onSelectFile = (e) => {
     setSelected(true)
     console.log("e.target")
+    console.log(e.target)
     setSelectFile(e.target.files[0])
   }
 
@@ -71,6 +72,8 @@ console.log("here2!");
       <label htmlFor="file"> {label ? label : "File"} </label>
       {/* <FileUpload onSelect={handleFileUpload} multiple accept="application\pdf" /> */}
       <input type="file" onChange={onSelectFile} name="file" />
+      {/* <input type="file"  name="file" /> */}
+
     </>
   )
 }
