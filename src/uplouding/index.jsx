@@ -2,10 +2,10 @@
 import Up from "./Up";
 import Uploader from "./Uploader";
 
-const Uploud = () => {
+const Uploud = ({setContent,content}) => {
     return(<>
     <br></br>
-    <Up></Up>
+    <Up setContent={setContent} content={content}></Up>
     </>)
 }
 

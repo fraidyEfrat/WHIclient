@@ -61,7 +61,7 @@ const SingleArticle = ({ article }) => {
     >
       <CardMedia
         sx={{ height: 140 }}
-        image={defaultImage}
+        image={`http://localhost:3600/images/${picture}`}
         title="green iguana"
       />
       <CardContent>
@@ -97,7 +97,7 @@ const SingleArticle = ({ article }) => {
           </Grid>
           <Grid item>
             <ArticleComments idarticle={idarticle}></ArticleComments>
-            <ArticleRead idarticle={idarticle}></ArticleRead>
+            <ArticleRead content={content} idarticle={idarticle}></ArticleRead>
           </Grid>
         </Grid>
       </CardActions>

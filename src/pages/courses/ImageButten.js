@@ -12,7 +12,6 @@ import  CourseRegister  from './CourseRegister';
 import Woman2Icon from '@mui/icons-material/Woman2';
 import PlaceIcon from '@mui/icons-material/Place';
 
-
 const ImgButton = styled(ButtonBase)(({ theme }) => ({
   // position: 'relative',
   height: 200,
@@ -79,7 +78,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 
 export default function ImageButten({course}) {
   const {idcourse,lecturer,maxRegisters,cost,numLecture,idsubject,picture,address,minage,maxage,topic}=course
- console.log(course)
+ console.log("✔✔🐱‍🚀",picture)
   return (
         <ImgButton
           focusRipple
@@ -88,7 +87,8 @@ export default function ImageButten({course}) {
             display: 'block',  maxWidth:300, minHeight:200,margin:"20px", width: '100%' 
           }}
         >
-          <ImageSrc style={{ backgroundImage: `url(${defaultImage})` }} />
+          {/* <ImageSrc style={{ backgroundImage: `url(${defaultImage})` }} /> */}
+          <ImageSrc style={{ backgroundImage: `url(http://localhost:3600/images/${picture})` }} />
           <ImageBackdrop className="MuiImageBackdrop-root" />
           <Image>
             <Typography
@@ -114,25 +114,6 @@ export default function ImageButten({course}) {
              <div>
             <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br> 
             <CourseRegister></CourseRegister>
-             {/* <Button   {...bindTrigger(popupState)}>
-            הרשמה
-          </Button> */}
-          {/* <CourseRegister
-           {...bindPopover(popupState)}
-          ></CourseRegister> */}
-          {/* <Popover
-            {...bindPopover(popupState)}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-          >
-            <CourseRegister></CourseRegister>
-          </Popover> */}
         </div>
       )}
     </PopupState>

@@ -17,11 +17,13 @@ const AddCourse = () => {
    const [numLecture,setNumLecture]=useState("");
    const [maxRegisters,setMaxRegisters]=useState("");
    const [idsubject,setIdsubject]=useState("");
+  
    const [topic,setTopic]=useState("");
 
    const [err, setErr] = useState(null);
 
   const handleAddCourse=async(e)=>{
+ 
     setErr("");
     e.preventDefault();
     const token = localStorage.getItem("token");
@@ -50,8 +52,8 @@ const AddCourse = () => {
          <h1>הוספת קורס</h1>
          <TextField onChange={(e)=>{setLecturer(e.target.value)}} id="outlined-basic" label="lecture" variant="outlined" /><br></br><br></br>;
          <TextField onChange={(e)=>{setCost(e.target.value)}} id="outlined-basic" label="cost" variant="outlined" /><br></br><br></br>;
-         <TextField onChange={(e)=>{setPicture(e.target.value)}} id="outlined-basic" label="picture" variant="outlined" /><br></br><br></br>;
-         <Uploud></Uploud>
+         {/* <TextField onChange={(e)=>{setPicture(e.target.value)}} id="outlined-basic" label="picture" variant="outlined" /><br></br><br></br>; */}
+         <Uploud setContent={setPicture} content={picture}></Uploud>
          <TextField onChange={(e)=>{setAddress(e.target.value)}} id="outlined-basic" label="address" variant="outlined" /><br></br><br></br>;
          <TextField onChange={(e)=>{setMinage(e.target.value)}} id="outlined-basic" label="minage" variant="outlined" /><br></br><br></br>;
          <TextField onChange={(e)=>{setMaxage(e.target.value)}} id="outlined-basic" label="maxage" variant="outlined" /><br></br><br></br>;
