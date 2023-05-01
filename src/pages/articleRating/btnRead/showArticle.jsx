@@ -7,22 +7,11 @@ import { useContext } from "react";
 
 
 const ShowArticle=() => {
-  const navigate = useNavigate()
-  const location = useLocation();
-   const {content} = location.state.content;
-console.log(content);
+ 
     return(
      <>
-  <br></br><br></br> <br></br><br></br>
-
-
-  <iframe src={`http://localhost:3600/images/${content}`} width="100%" height="100%" >
-
-      {/* <p>
-          Your browser does not support PDF files.
-          <a href="mypdf.pdf">Download the file instead</a>
-      </p> */}
-  </iframe>
+  readArticle readArticle readArticle readArticle readArticle readArticle
+  readArticlereadArticle readArticle readArticle
   </>
 )
 }
