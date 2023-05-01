@@ -41,7 +41,7 @@ const AddArticle = () => {
 
   return (
     <div style={{ paddingTop: "50px" }}>
-      <h1>הוספת קורס</h1>
+      <h1>הוספת מאמר</h1>
       <TextField onChange={(e) => { setIdsubject(e.target.value) }} id="outlined-basic" label="idsubject" variant="outlined" /><br></br><br></br>;
       <TextField onChange={(e) => { setTitle(e.target.value) }} id="outlined-basic" label="title" variant="outlined" /><br></br><br></br>;
       <TextField onChange={(e) => { setContent(e.target.value) }} id="outlined-basic" label="content" variant="outlined" ></TextField><br></br><br></br>;
