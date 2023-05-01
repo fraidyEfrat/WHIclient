@@ -31,6 +31,7 @@ const Uploader = ({ file, setFile, setName, label }) => {
   const [selectFile, setSelectFile] = useState();
   const [selected, setSelected] = useState(false);
   const selectedFunc = async () => {
+    console.log("here 1!");
     if (selectFile) {
       const formData = new FormData()
       formData.append("file", selectFile)
@@ -40,7 +41,7 @@ const Uploader = ({ file, setFile, setName, label }) => {
           Authorization: `Bearer ${token}`
         }
       };
-
+console.log("here2!");
       axios.post("http://localhost:3600/api/upload", formData, config ,idFolder).then(({ data }) => {
         if (data?.name) {
           console.log(data.name)
@@ -49,8 +50,9 @@ const Uploader = ({ file, setFile, setName, label }) => {
           setName(data.location)
           
           }
+          console.log("here3!");
       }).catch(err => {
-        console.log("error")
+        console.log(err)
       })
     }
 
