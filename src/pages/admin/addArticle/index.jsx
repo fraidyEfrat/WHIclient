@@ -46,6 +46,9 @@ const AddArticle = () => {
       <h1>הוספת מאמר</h1>
       <TextField onChange={(e) => { setIdsubject(e.target.value) }} id="outlined-basic" label="idsubject" variant="outlined" /><br></br><br></br>;
       <TextField onChange={(e) => { setTitle(e.target.value) }} id="outlined-basic" label="title" variant="outlined" /><br></br><br></br>;
+      <TextField onChange={(e) => { setContent(e.target.value) }} id="outlined-basic" label="content" variant="outlined" ></TextField><br></br><br></br>;
+      <Uploud></Uploud>
+      
       {/* <TextField onChange={(e) => { setContent(e.target.value) }} id="outlined-basic" label="content" variant="outlined" ></TextField><br></br><br></br>; */}
       <Uploud setContent={setContent} content={content}></Uploud>
       <Button >תוכן המאמר</Button>

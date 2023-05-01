@@ -31,6 +31,11 @@ import UpBarUser from './upBarUser'
 import defaultImage from './pages/images/logo.jpg';
 import Uploud from './uplouding';
 
+// import PersonAddIcon from '@mui/icons-material/Person';
+// import ListIcon from '@mui/icons-material/List';
+// import HomeIcon from '@mui/icons-material/Home';
+// import BarChartIcon from '@mui/icons-material/BarChart';
+// import SchoolIcon from '@mui/icons-material/School';
 
 function Routing() {
       const {role} = useContext(AuthContext);
