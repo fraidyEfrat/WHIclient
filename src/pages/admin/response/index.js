@@ -7,10 +7,27 @@ import Request from './Request';
 
 const UserRequestList = () => {
     const [requestList, setRequestList] = useState([]);
+    const [err, setErr] = useState(null);
+
     useEffect(() => {
       async function fetchData() {
-          const {data:_requestList} = await axios.get("http://localhost:3600/api/user_request")
-          if(_requestList?.length) setRequestList(_requestList)         
+        setErr("");
+        //e.preventDefault();
+        const token = sessionStorage.getItem("token");
+        const config = {
+          headers: {
+            'Authorization': 'Bearer ' + token
+          }
+        }
+        try {
+    
+          const {data:_requestList} = await axios.get("http://localhost:3600/api/user_request",config)
+          if(_requestList?.length) 
+              setRequestList(_requestList)  
+        } 
+       catch (err) {
+        setErr(err.response.data?.message);
+      }      
           
         }
         fetchData()
@@ -20,7 +37,7 @@ const UserRequestList = () => {
   return (   
     <>
     <div>---</div>
-    <Table>
+    <Table style={{ paddingTop: "66px" }}>
       <TableBody>
       {requestList?.length && requestList.map((request)=>{return <Request requestDetails={request} /> })}
     </TableBody>

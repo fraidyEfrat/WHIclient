@@ -27,7 +27,7 @@ const AdminResponse = () => {
   // console.log(state.iduser);
 
 
-  //const { iduser_request } = useParams();
+  //const { articleId } = useParams();
 
   console.log("iduser_request:",iduser_request);
   //const id = JSON.parse(sessionStorage.getItem('user')).userId;
@@ -39,7 +39,7 @@ const AdminResponse = () => {
   //     try {  
   //         // let config = {
   //         //     headers: {
-  //         //       'Authorization': 'Bearer ' + localStorage.getItem("token")
+  //         //       'Authorization': 'Bearer ' + sessionStorage.getItem("token")
   //         //     }
   //         // } 
   //         console.log("kkkk",iduser_request);
@@ -54,23 +54,35 @@ const AdminResponse = () => {
   //       setErr(err.response.data?.message);
   //     }
   //   };
-  const handleClick=async ()=>{
+  const handleClick=async (e)=>{
     
-         
+          setErr("");
+          e.preventDefault();
+          const token = sessionStorage.getItem("token");
+          const config = {
+            headers: {
+              'Authorization': 'Bearer ' + token
+            }
+          }
+          try {
           console.log("kkkk",iduser);
-         const res=await axios.get(`http://localhost:3600/api/user/${iduser}`);
+          const res=await axios.get(`http://localhost:3600/api/user/${iduser}`,config);
           console.log("res")
           console.log(res.data.email)
           const email=res.data.email
-          const {data:_response}=await axios.put(`http://localhost:3600/api/user_request/${iduser_request}`,{iduser_request,response,email});
+          const {data:_response}=await axios.put(`http://localhost:3600/api/user_request/${iduser_request}`,{iduser_request,response,email},config);
           if(_response?.length) 
           {
             setResponse(_response)         
             console.log(_response)
             alert("succesfull!")
-        }
-     else
-     alert("not succesfull")
+          }
+      }
+    
+    catch (err) {
+      setErr(err.response.data?.message);
+    }
+    
     };
  
 return (

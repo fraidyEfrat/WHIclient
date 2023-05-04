@@ -1,18 +1,49 @@
-import { useState } from "react";
+
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import { useContext } from "react";
-
-
-const ShowArticle=() => {
+import React, {useState, useEffect} from "react"
  
+const ShowArticle= () => {
+    const [content, setContent] = useState([]);
+    const [title, setTitle] = useState([]);
+    
+    const location = useLocation();
+        const {idarticle}=useParams();
+
+              // const searchParams = new URLSearchParams(location.search);
+              // const idarticle = searchParams.get('idarticle');
+              // console.log("idarticle",idarticle);
+    useEffect( () => { 
+        async function fetchData() {
+            try {
+              const res=await axios.get(`http://localhost:3600/api/article/${idarticle}`);
+              console.log("res",res);
+              console.log(res.data.content);
+              setContent(res.data.content);
+              setTitle(res.data.title)
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, []);
+   
+    const renderHTML = (htmlString) => { return {__html: htmlString}}
+  
     return(
+      <div style={{paddingTop:"166px", margin:'auto'}}>
      <>
-  readArticle readArticle readArticle readArticle readArticle readArticle
-  readArticlereadArticle readArticle readArticle
+     <h1 >{title}</h1>
+     <div> <div dangerouslySetInnerHTML={renderHTML(content)} /> </div>
+     
   </>
+  </div>
 )
-}
+};
+
+
+
 export default ShowArticle

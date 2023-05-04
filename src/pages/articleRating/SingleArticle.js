@@ -19,6 +19,7 @@ import CardMedia from '@mui/material/CardMedia'
 import { AuthContext } from '../../context/authContex'
 import { useContext } from "react";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -28,6 +29,7 @@ const Img = styled('img')({
 });
 
 const SingleArticle = ({ article }) => {
+  const navigate=useNavigate()
   const { role } = useContext(AuthContext);
   //const [stars, setStars] = useState(0);
 
@@ -52,7 +54,9 @@ const SingleArticle = ({ article }) => {
   return (
 
     <Card
+      
       sx={{
+        // cursor:"pointer",
         margin: "20px",
         maxWidth: 300,
         flexGrow: 1,
@@ -73,9 +77,9 @@ const SingleArticle = ({ article }) => {
                   title: {title}
                 </Typography>
 
-                <Typography variant="body2" gutterBottom>
+                {/* <Typography variant="body2" gutterBottom>
                   content: {content}
-                </Typography>
+                </Typography> */}
                 <Typography variant="body2" color="text.secondary">
                   author: {author}
                 </Typography>
@@ -93,12 +97,14 @@ const SingleArticle = ({ article }) => {
           </Typography>
           <Grid item>
             <DisplayRating stars={stars} ></DisplayRating>
-            {role == "UNSIGNED" ? <UnsignedRating></UnsignedRating> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} ></RatingArticle>}
+            {role == "UNSIGNED" ? <UnsignedRating/> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} ></RatingArticle>}
           </Grid>
           <Grid item>
             <ArticleComments idarticle={idarticle}></ArticleComments>
-            <ArticleRead content={content} idarticle={idarticle}></ArticleRead>
-          </Grid>
+     
+              <Button onClick={()=>navigate(`/article/${idarticle}`)}>לקריאה>>></Button>
+          
+       </Grid>
         </Grid>
       </CardActions>
     </Card>

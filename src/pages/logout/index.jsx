@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/authContex";
 
   const Logout = () => {
     const{setRole}=useContext(AuthContext);
-    localStorage.removeItem("token", "");
+    sessionStorage.removeItem("token", "");
     setRole("UNSIGNED");
   };
 

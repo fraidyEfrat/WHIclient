@@ -10,7 +10,9 @@ import { TransitionProps } from '@mui/material/transitions';
 const UnsignedRating=()=>{
     const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
+    const handleClickOpen = (event) => {
+      alert("Wwwwwwwwwww");
+      event.stopPropagation();
       setOpen(true);
     };
   

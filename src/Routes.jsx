@@ -31,24 +31,20 @@ import UpBarUser from './upBarUser'
 import defaultImage from './pages/images/logo.jpg';
 import Uploud from './uplouding';
 
-// import PersonAddIcon from '@mui/icons-material/Person';
-// import ListIcon from '@mui/icons-material/List';
-// import HomeIcon from '@mui/icons-material/Home';
-// import BarChartIcon from '@mui/icons-material/BarChart';
-// import SchoolIcon from '@mui/icons-material/School';
+
 
 function Routing() {
       const {role} = useContext(AuthContext);
       
       const paths = {
             "UNSIGNED" : [ {url : "/", title: "דף הבית", element: <Home/>},
-            {url : "/information", title: "מידע", element : <Information/>},
+            {url : "/information", title: "אודות", element : <Information/>},
             {url : "/register", title: "הרשמה", element : <Register/>},
             {url : "/login", title: "כניסה", element: <Login/>},
             {url : "/articleRating", title: "מאמרים", element: <ArticlesList/>},
             {url : "/courses", title: "קורסים", element: <Courses/>},],
             "USER" : [ {url : "/", title: "דף הבית", element: <Home/>},
-            {url : "/information", title: "מידע", element : <Information/>},
+            {url : "/information", title: "אודות", element : <Information/>},
             {url : "/request", title: "בקשה", element : <Request/>},
             {url : "/articleRating", title: "מאמרים", element: <ArticlesList/>},
             {url : "/courses", title: "קורסים", element: <Courses/>}, 
@@ -56,7 +52,7 @@ function Routing() {
             {url:"/personalArea",title:"אזור אישי",element:<PersonalArea/>} ],
             "ADMIN" : [ {url : "/", title: "דף הבית", element: <Home/>},
             {url : "/admin", title: "ניהול", element : <Admin/>},
-            {url : "/information", title: "מידע", element : <Information/>},
+            {url : "/information", title: "אודות", element : <Information/>},
             {url : "/add", title: "הוספת קורסים ומאמרים", element: <Add/>},
             {url : "/statistics", title: "סטטיסטיקות", element: <Statistics/>},
             {url : "/articleRating", title: "מאמרים", element: <ArticlesList/>},
@@ -74,9 +70,8 @@ function Routing() {
            
                   <Routes>
                         {currPaths.map((currPath => <Route path = {currPath.url} element = {currPath.element}></Route>))},
-                        {/* {url : "/showArticle", title: "showArticle", element: <ShowArticle/>},
-                        {url : "/showComments", title: "showComments", element: <ShowComments/>} */}
-                        <Route path = {"/showArticle"} element = {<ShowArticle/>}></Route>
+                        
+                        <Route path = {"/article/:idarticle"} element = {<ShowArticle/>}></Route>
                         <Route path = {"/showComments"} element = {<ShowComments/>}></Route>
                         <Route path = {"/response"} element = {<Response/>}></Route>
                         <Route path = {"/addResponse"} element = {<AddResponse/>}></Route>
