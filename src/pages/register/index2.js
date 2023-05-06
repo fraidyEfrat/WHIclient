@@ -219,7 +219,7 @@ const Register = () => {
               className={classes.inputField}
               label="Password"
             //   variant="outlined"
-            type='password'
+            type={showPassword ? 'text' : 'password'}
               fullWidth
               required
               value={password}
@@ -239,6 +239,8 @@ const Register = () => {
           </Grid>
         
              </Grid>
+             <button onClick={handleRegister}>register</button>
+
              </form>
              </div>
              )}

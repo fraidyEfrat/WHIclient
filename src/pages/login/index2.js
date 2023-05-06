@@ -42,7 +42,7 @@ const Login = () => {
     
   
 
-const [showPassword, setShowPassword] = React.useState(false);
+const [showPassword, setShowPassword] = useState(false);
 
 const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -63,7 +63,18 @@ const login = async () => {
     setRole(res.data.user.role);
   }
 
-    
+  const handleClick = async () => {
+
+    console.log("in handleClick");
+    try {
+      console.log("in try login");
+      await login();
+
+    }
+    catch (err) {
+      setErr(err.response.data?.message);
+    }
+  }
   
   return (
     <div className={classes.root}>
@@ -88,7 +99,7 @@ const login = async () => {
               className={classes.inputField}
               label="Password"
             //   variant="outlined"
-            type='password'
+            type={showPassword ? 'text' : 'password'}
               fullWidth
               required
               value={password}
@@ -106,6 +117,7 @@ const login = async () => {
               }}
             />
           </Grid>
+          <button onClick={handleClick}>login</button>
         
              </form>
              </div>
