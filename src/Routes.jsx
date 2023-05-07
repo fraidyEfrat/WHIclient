@@ -5,10 +5,10 @@ import Container from '@mui/material/Container';
 import { Routes, Route } from "react-router-dom"
 import { Link } from 'react-router-dom';
 import Home from './pages/home';
-import Register from './pages/register';
+import Register from './pages/register/index2';
 import Courses from './pages/courses';
 import Request from './pages/user/request';
-import Login from './pages/login';
+import Login from './pages/login/index2';
 import Logout from './pages/logout';
 import Admin from './pages/admin';
 import Response from './pages/admin/response';
