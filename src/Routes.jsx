@@ -16,7 +16,8 @@ import AdminResponse from './pages/admin/response/AdminResponse';
 import ArticlesList from './pages/articleRating';
 import ShowArticle from './pages/articleRating/btnRead/showArticle';
 import ShowComments from './pages/articleRating/btnComments/showComments';
-import Add from './pages/admin/add';
+import AddArticle from './pages/admin/AddArticle';
+import AddCourse from './pages/admin/AddCourse';
 import Information from './pages/information';
 import Statistics from './pages/admin/statistics';
 import UpBarUnsigned from './upBarUnsigned';
@@ -40,6 +41,7 @@ import ManegmentIcon from '@mui/icons-material/ManageAccounts';
 import Personal from '@mui/icons-material/Face3';
 import EmailIcon from '@mui/icons-material/ForwardToInbox';
 
+
 // {url : "/request", title: "בקשה", element : <Request/>,icon:<HomeIcon/>},
  
 // {url:"/requestList",title:"היסטורית בקשות",element:<RequestList/>,icon:<HomeIcon/>},
@@ -61,7 +63,6 @@ function Routing() {
             "ADMIN" : [ {url : "/", title: "דף הבית", element: <Home/>,icon:<HomeIcon/>},
             {url : "/admin", title: "ניהול", element : <Admin/>,icon:<ManegmentIcon/>},
             {url : "/information", title: "אודות", element : <Information/>,icon:<AboutIcon/>},
-            {url : "/add", title: "הוספת קורסים ומאמרים", element: <Add/>,icon:<ManegmentIcon/>},
             {url : "/statistics", title: "סטטיסטיקות", element: <Statistics/>,icon:<GraphIcon/>},
             {url : "/articleRating", title: "מאמרים", element: <ArticlesList/>,icon:<ArticleIcon/>},
             {url : "/courses", title: "קורסים", element: <Courses/>,icon:<CourseIcon/>},
@@ -82,6 +83,8 @@ function Routing() {
                         <Route path = {"/article/:idarticle"} element = {<ShowArticle/>}></Route>
                         <Route path = {"/showComments"} element = {<ShowComments/>}></Route>
                         <Route path = {"/response"} element = {<Response/>}></Route>
+                        <Route path = {"/addArticle"} element = {<AddArticle/>}></Route>
+                        <Route path = {"/addCourse"} element = {<AddCourse/>}></Route>
                         <Route path = {"/adminResponse"} element = {<AdminResponse/>}></Route>
                      
                   </Routes>

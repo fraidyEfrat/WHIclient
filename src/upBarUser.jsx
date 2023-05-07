@@ -2,7 +2,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import Personal from '@mui/icons-material/Face3';
 
 import React from "react";
 import { useContext } from "react";
@@ -66,8 +67,8 @@ return(
     open={Boolean(anchorEl)}
     onClose={handleClose}
     >
-    <MenuItem onClick={handleLogout}>יציאה</MenuItem>
-    <MenuItem onClick={handlePersonalArea}>אזור אישי</MenuItem>
+    <MenuItem onClick={handleLogout}><LogoutIcon/> יציאה</MenuItem>
+    <MenuItem onClick={handlePersonalArea}> <Personal/>אזור אישי</MenuItem>
     </Menu>
     </>
 )}

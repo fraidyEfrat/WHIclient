@@ -15,10 +15,7 @@ import { Column } from 'primereact/column';
 const RequestList = () => {
 
     const [userRequests, setUserRequests] = useState([]);
-    //  const iduser  =1;
-    //const {iduser}=useContext(AuthContext);  
-    // console.log("in RequestList iduser:",iduser)
-
+    const [sortOrder, setSortOrder] = useState("old");
      useEffect(() => {
      
                
@@ -31,7 +28,7 @@ const RequestList = () => {
             }
           }
 
-          const { data } = await axios.get(`http://localhost:3600/api/user_request/ByUserID`,  config);
+          const { data } = await axios.get(`http://localhost:3600/api/user_request/ByUserID/${sortOrder}`,  config);
           // const { data } = await axios.get(`http://localhost:3600/api/user_request/search?iduser=${iduser}`);
           setUserRequests(data);
 
