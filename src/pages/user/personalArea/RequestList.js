@@ -31,7 +31,7 @@ const RequestList = () => {
             }
           }
 
-          const { data } = await axios.get(`http://localhost:3600/api/user_request/iduser/ByUserID`,  config);
+          const { data } = await axios.get(`http://localhost:3600/api/user_request/ByUserID`,  config);
           // const { data } = await axios.get(`http://localhost:3600/api/user_request/search?iduser=${iduser}`);
           setUserRequests(data);
 

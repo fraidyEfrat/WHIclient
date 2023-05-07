@@ -29,6 +29,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
 
+  
+
   return (
     <>
     <TableRow />
@@ -40,7 +42,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     <StyledTableCell >{status}</StyledTableCell>
     <StyledTableCell >{iduser}</StyledTableCell>
     {/* <StyledTableCell ><Button onClick={()=>navigate(`/addResponse/${iduser_request}`)}>שליחת תגובה</Button></StyledTableCell> */}
-    <StyledTableCell ><Button onClick={()=>navigate(`/addResponse` ,{ state: { iduser_request: {iduser_request} , iduser: {iduser}} })}>שליחת תגובה</Button></StyledTableCell>
+    <StyledTableCell ><Button onClick={()=>navigate(`/adminResponse` ,{ state: { iduser_request: {iduser_request}} })}>שליחת תגובה</Button></StyledTableCell>
 
     
     {/* <StyledTableCell ><Button >לדירוג </Button></StyledTableCell> */}

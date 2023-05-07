@@ -18,42 +18,10 @@ const AdminResponse = () => {
   const [err, setErr] = useState(null);
   const location = useLocation();
   const { iduser_request } = location.state.iduser_request;
-  const { iduser } = location.state.iduser;
-//  const state=useState();
-  console.log("iduser_request");
 
-  console.log(iduser_request);
-  console.log("iduser");
-  // console.log(state.iduser);
+console.log("iduser_request:",iduser_request);
 
 
-  //const { articleId } = useParams();
-
-  console.log("iduser_request:",iduser_request);
-  //const id = JSON.parse(sessionStorage.getItem('user')).userId;
-  
-  
-
-  //  const handleClick=async ()=>{
-  //   //e.preventDefault();
-  //     try {  
-  //         // let config = {
-  //         //     headers: {
-  //         //       'Authorization': 'Bearer ' + sessionStorage.getItem("token")
-  //         //     }
-  //         // } 
-  //         console.log("kkkk",iduser_request);
-  //         const {data:_response}=await axios.put(`http://localhost:3600/api/user_request/${iduser_request}`,{iduser_request,response});
-  //         if(_response?.length) 
-  //         {
-  //           setResponse(_response)         
-  //         console.log(_response)
-  //       }
-  //     } catch (err) {
-  //       console.log(err);
-  //       setErr(err.response.data?.message);
-  //     }
-  //   };
   const handleClick=async (e)=>{
     
           setErr("");
@@ -65,12 +33,15 @@ const AdminResponse = () => {
             }
           }
           try {
-          console.log("kkkk",iduser);
-          const res=await axios.get(`http://localhost:3600/api/user/${iduser}`,config);
+          debugger;
+          const res=await axios.get(`http://localhost:3600/api/user/${iduser_request}`,config);
           console.log("res")
           console.log(res.data.email)
-          const email=res.data.email
-          const {data:_response}=await axios.put(`http://localhost:3600/api/user_request/${iduser_request}`,{iduser_request,response,email},config);
+          const email=res.data.email;
+          const request=res.data.request;
+          const subject=res.data.subject;
+
+          const {data:_response}=await axios.put(`http://localhost:3600/api/user_request/${iduser_request}`,{iduser_request,subject,request,response,email},config);
           if(_response?.length) 
           {
             setResponse(_response)         
@@ -80,6 +51,7 @@ const AdminResponse = () => {
       }
     
     catch (err) {
+      console.log(err);
       setErr(err.response.data?.message);
     }
     
@@ -87,7 +59,7 @@ const AdminResponse = () => {
  
 return (
   
-   <div className="user-request-page">
+   <div className="user-request-page"  style={{ paddingTop: "50px" }}>
     <h1>אזור אישי</h1>
       
       <input onChange={(e)=>{setResponse(e.target.value)}} type="text" placeholder=" נא לכתוב את התגובה כאן  " ></input><br/><br/>
