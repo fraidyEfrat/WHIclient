@@ -1,4 +1,4 @@
- import * as React from 'react';
+import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
@@ -7,10 +7,11 @@ import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import  CourseRegister  from './CourseRegister';
+import CourseRegister from './CourseRegister';
 // import PaymentIcon from '@mui/icons-material/Payment';
 import Woman2Icon from '@mui/icons-material/Woman2';
 import PlaceIcon from '@mui/icons-material/Place';
+import CourseDetails from './courseDetails';
 
 const ImgButton = styled(ButtonBase)(({ theme }) => ({
   // position: 'relative',
@@ -76,53 +77,53 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 //   transition: theme.transitions.create('opacity'),
 // }));
 
-export default function ImageButten({course}) {
-  const {idcourse,lecturer,maxRegisters,cost,numLecture,idsubject,picture,address,minage,maxage,topic}=course
- console.log("✔✔🐱‍🚀",picture)
+export default function ImageButten({ course }) {
+  const { idcourse, lecturer, maxRegisters, cost, numLecture, idsubject, picture, address, minage, maxage, topic } = course
+  console.log("✔✔🐱‍🚀", picture)
   return (
-        <ImgButton
-          focusRipple
-          key={lecturer}
-          style={{
-            display: 'block',  maxWidth:300, minHeight:200,margin:"20px", width: '100%' 
+    <ImgButton
+      focusRipple
+      key={lecturer}
+      style={{
+        display: 'block', maxWidth: 300, minHeight: 200, margin: "20px", width: '100%'
+      }}
+    >
+      {/* <ImageSrc style={{ backgroundImage: `url(${defaultImage})` }} /> */}
+      <ImageSrc style={{ backgroundImage: `url(http://localhost:3600/images/${picture})` }} />
+      <ImageBackdrop className="MuiImageBackdrop-root" />
+      <Image>
+        <Typography
+          // component="span"
+          variant="subtitle1"
+          color="inherit"
+          sx={{
+            position: 'relative',
+            p: 4,
+            pt: 2,
+            pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
           }}
         >
-          {/* <ImageSrc style={{ backgroundImage: `url(${defaultImage})` }} /> */}
-          <ImageSrc style={{ backgroundImage: `url(http://localhost:3600/images/${picture})` }} />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              // component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: 'relative',
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              {topic}
-              <br></br>
-             {lecturer}
-              <br></br>
-            
-            </Typography>
+          {topic}
+          <br></br>
+          {lecturer}
+          <br></br>
 
-            <PopupState variant="popover" popupId="demo-popup-popover">
-            {(popupState) => (
-             <div>
-            <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br> 
-            <CourseRegister></CourseRegister>
-        </div>
-      )}
-    </PopupState>
+        </Typography>
 
-            <PopupState variant="popover" popupId="demo-popup-popover">
-            {(popupState) => (
-             <div>
-            <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br> 
-             <Button  {...bindTrigger(popupState)}
+        <PopupState variant="popover" popupId="demo-popup-popover">
+          {(popupState) => (
+            <div>
+              <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
+              <CourseRegister courseDetails={null}></CourseRegister>
+            </div>
+          )}
+        </PopupState>
+
+        <PopupState variant="popover" popupId="demo-popup-popover">
+          {(popupState) => (
+            <div>
+              <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
+              {/* <Button  {...bindTrigger(popupState)}
         
                >
             פרטים
@@ -139,11 +140,20 @@ export default function ImageButten({course}) {
             }}
           >
             <Typography sx={{ p: 2 }}>כתובת:{address}<br></br>עלות:{cost}<br></br>מס' שיעורים:{numLecture}<br></br> מיועד לגילאים:{minage}-{maxage}</Typography>
-          </Popover>
-        </div>
-      )}
-    </PopupState>
-          </Image>
-        </ImgButton>
+          </Popover> */}
+          {/* <PopupState variant="popover" popupId="demo-popup-popover">
+          {(popupState) => (
+            <div>
+              <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
+          <CourseDetails course={course}></CourseDetails>
+            </div>
+          )}
+        </PopupState> */}
+         <CourseDetails course={course}></CourseDetails>
+            </div>
+          )}
+        </PopupState>
+      </Image>
+    </ImgButton>
   );
 }

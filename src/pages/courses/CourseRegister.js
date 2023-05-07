@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../context/authContex'
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
@@ -6,17 +6,14 @@ import Register from '../register';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 
-const CourseRegister = () => {
+const CourseRegister = ({closeDetails}) => {
+
+// useEffect(()=>{button?handleClose():handleclick()},[])  
 
 const[flag,setFlag]=useState(false);    
-const handleclick=()=>{
-    if(role==='UNSIGNED')
-       setOpen(true)
-    else
-       setFlag(true)
-}
 
-    const [open, setOpen] = React.useState(false);
+
+    const [open, setOpen] = useState(false);
 
    
   
@@ -27,14 +24,20 @@ const handleclick=()=>{
         setFlag(false)
     };
 
+    const handleclick=()=>{
+      if(closeDetails)
+        closeDetails(false);
+      if(role==='UNSIGNED')
+         setOpen(true)
+      else
+         setFlag(true)
+       }
+  
+
  const role=useContext(AuthContext).role
-
- console.log(role)
-
+ 
         return (<>
-          <Button onClick={handleclick}>
-            הרשמה
-          </Button>
+          <Button onClick={handleclick}>רישום</Button>
           <Dialog
            open={open}
            onClose={handleClose}
