@@ -100,7 +100,7 @@ const SingleArticle = ({ article }) => {
           </Typography>
           <Grid item>
             <DisplayRating stars={stars} ></DisplayRating>
-            {/* {role == "UNSIGNED" ? <UnsignedRating/> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} ></RatingArticle>} */}
+             {role == "UNSIGNED" ? <UnsignedRating/> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} ></RatingArticle>} 
           </Grid>
           <Grid item>
             <ArticleComments idarticle={idarticle}></ArticleComments>
