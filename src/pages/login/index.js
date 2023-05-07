@@ -8,8 +8,7 @@ import { AuthContext } from "../../context/authContex";
 // // import { RegisterPopup } from "../popup";
 
 const Login = () => {
-  //TODO:: maybe add logout logic here
-  //when there is no token , user is logged out
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState(null);
