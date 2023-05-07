@@ -73,6 +73,9 @@ const SingleArticle = ({ article }) => {
           <Grid item xs={6} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
+              {role == "ADMIN" ?  <Button >עריכה</Button> : <></>}
+              {/* ()=>{alert("כאן צריך להביא לעמוד עריכה כמו הוספה רק עם הפרטים")} */}
+             
                 <Typography gutterBottom variant="subtitle1" component="div">
                   title: {title}
                 </Typography>
@@ -97,7 +100,7 @@ const SingleArticle = ({ article }) => {
           </Typography>
           <Grid item>
             <DisplayRating stars={stars} ></DisplayRating>
-            {role == "UNSIGNED" ? <UnsignedRating/> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} ></RatingArticle>}
+            {/* {role == "UNSIGNED" ? <UnsignedRating/> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} ></RatingArticle>} */}
           </Grid>
           <Grid item>
             <ArticleComments idarticle={idarticle}></ArticleComments>
