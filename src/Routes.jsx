@@ -8,7 +8,7 @@ import Home from './pages/home';
 import Register from './pages/register/index3';
 import Courses from './pages/courses';
 import Request from './pages/user/request';
-import Login from './pages/login/index3';
+import Login from './pages/login';
 import Logout from './pages/logout';
 import Admin from './pages/admin';
 import Response from './pages/admin/response';
@@ -75,8 +75,23 @@ function Routing() {
       const currPaths = paths[role];
      
       return(
-            <>
-           
+            <>  <AppBar position="fixed" sx={{backgroundColor: '#a3fdd8' }} >
+            <Container maxWidth="xl">
+                  <Toolbar  image={defaultImage}>
+                        <img src="/logo.jpg" style={{height:'50px', borderRadius:'190px 190px 0px 0px'}}/>
+                  <Stack direction="row" spacing={5} style={{ marginRight: 'auto', marginLeft: 'auto'}}>
+                        {
+                              currPaths.map((currPath) => <Button  color="success" component={Link} to={currPath.url}>{currPath.icon}{currPath.title}</Button>) 
+                        }
+                  </Stack>
+                  {role=="USER"?<UpBarUser></UpBarUser>: role=="ADMIN"?<UpBarAdmin></UpBarAdmin>:<UpBarUnsigned></UpBarUnsigned>}
+                
+                  </Toolbar>
+                  {/* <Avatar alt="Remy Sharp" src="/logo.jpg" ></Avatar> */}
+                  
+            </Container>
+            </AppBar>
+           <Box sx={{margin:"64px"}}>
                   <Routes>
                         {currPaths.map((currPath => <Route path = {currPath.url} element = {currPath.element}></Route>))},
                         
@@ -88,24 +103,8 @@ function Routing() {
                         <Route path = {"/adminResponse"} element = {<AdminResponse/>}></Route>
                      
                   </Routes>
-                  <Box sx={{ flexGrow: 1 }}>
-                  <AppBar position="fixed" sx={{backgroundColor: '#a3fdd8' }} >
-                  <Container maxWidth="xl">
-                        <Toolbar  image={defaultImage}>
-                              <img src="/logo.jpg" style={{height:'50px', borderRadius:'190px 190px 0px 0px'}}/>
-                        <Stack direction="row" spacing={5} style={{ marginRight: 'auto', marginLeft: 'auto'}}>
-                              {
-                                    currPaths.map((currPath) => <Button  color="success" component={Link} to={currPath.url}>{currPath.icon}{currPath.title}</Button>) 
-                              }
-                        </Stack>
-                        {role=="USER"?<UpBarUser></UpBarUser>: role=="ADMIN"?<UpBarAdmin></UpBarAdmin>:<UpBarUnsigned></UpBarUnsigned>}
-                      
-                        </Toolbar>
-                        {/* <Avatar alt="Remy Sharp" src="/logo.jpg" ></Avatar> */}
-                        
-                  </Container>
-                  </AppBar>
-                  </Box>
+                
+</Box>
             </>
    
 

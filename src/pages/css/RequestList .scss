@@ -1,0 +1,23 @@
+.request-list-container {
+    margin-top: 50px;
+  }
+  
+  .request-list-title {
+    color: black;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .request-list-table {
+    width: 50%;
+    flex-shrink: 0;
+  }
+  
+  .sortable {
+    cursor: pointer;
+  }
+  
+  .user-requests-container {
+    /* Additional styles for the container if needed */
+  }
+  

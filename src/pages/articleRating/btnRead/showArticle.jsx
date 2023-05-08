@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import { useContext } from "react";
 import React, {useState, useEffect} from "react"
+import {Box} from "@mui/material"
  
 const ShowArticle= () => {
     const [content, setContent] = useState([]);
@@ -37,7 +38,7 @@ const ShowArticle= () => {
       <div style={{paddingTop:"166px", margin:'auto'}}>
      <>
      <h1 >{title}</h1>
-     <div> <div dangerouslySetInnerHTML={renderHTML(content)} /> </div>
+     <Box sx={{display:"flex", alignItems:"center", backgroundColor:"green", justifyContent:"center", fontSize:"166px"}}> <div dangerouslySetInnerHTML={renderHTML(content)} /> </Box>
      
   </>
   </div>

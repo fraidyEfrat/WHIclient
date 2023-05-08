@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from "../../context/authContex";
+import {useNavigate} from 'react-router-dom';
 // import './login.css';
 
 // //  import { LoginPopup } from "../popup";
@@ -12,8 +13,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState(null);
-  const { setRole, setIduser } = useContext(AuthContext);
-
+  const { role,setRole, setIduser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleClick = async () => {
 
@@ -38,6 +39,7 @@ const Login = () => {
     sessionStorage.setItem("role", res.data.user.role)
     console.log(res.data.accessToken);
     setRole(res.data.user.role);
+    role=="USER"?navigate("/personalArea"): navigate("/admin");
   }
 
 

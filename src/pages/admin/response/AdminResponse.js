@@ -33,7 +33,7 @@ console.log("iduser_request:",iduser_request);
             }
           }
           try {
-          debugger;
+       
           const res=await axios.get(`http://localhost:3600/api/user/${iduser_request}`,config);
           console.log("res")
           console.log(res.data.email)

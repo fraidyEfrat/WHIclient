@@ -30,9 +30,11 @@ const UpBarUser=()=>{
     };
 
     const handleLogout=()=>{
+    
         console.log("handleLogout");
         sessionStorage.removeItem("token", "");
         setRole("UNSIGNED");
+        navigate("/home");
     };
 
     const handlePersonalArea=()=>{

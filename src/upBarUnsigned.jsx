@@ -12,6 +12,7 @@ import PopupState from "material-ui-popup-state";
 import { useContext } from "react";
 import { AuthContext } from "../src/context/authContex";
 const UpBarUnsigned=()=>{
+
     const{setRole}=useContext(AuthContext);
     sessionStorage.removeItem("token", "");
     setRole("UNSIGNED");

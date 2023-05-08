@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
-import { TableRow,Button } from '@mui/material';
+import { TableRow,Button,TableCell } from '@mui/material';
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -18,31 +17,29 @@ const Request = ({requestDetails}) => {
 console.log("in request");
 console.log(iduser_request);
 
-//const {imgsrc}=useParams();
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
-  }));
+const {imgsrc}=useParams();
+// const StyledTableCell = styled(TableCell)(({ theme }) => ({
+//     [`&.${tableCellClasses.head}`]: {
+//       backgroundColor: theme.palette.common.black,
+//       color: theme.palette.common.white,
+//     },
+//     [`&.${tableCellClasses.body}`]: {
+//       fontSize: 14,
+//     },
+//   }));
 
   
 
   return (
     <>
     <TableRow />
-    <StyledTableCell ><div>{iduser_request}</div></StyledTableCell>
-    <StyledTableCell >{subject}</StyledTableCell>
-    <StyledTableCell >{request}</StyledTableCell>
-    <StyledTableCell >{response}</StyledTableCell>
-    <StyledTableCell >{date}</StyledTableCell>
-    <StyledTableCell >{status}</StyledTableCell>
-    <StyledTableCell >{iduser}</StyledTableCell>
+    <TableCell align="left" >{subject}</TableCell>
+    <TableCell align="left" sx={{width:5, backgroundColor:"red"}}>{request}</TableCell>
+    <TableCell align="left" sx={{width:5}}>{response}</TableCell>
+    <TableCell align="left">{date}</TableCell>
+    <TableCell align="left">{status}</TableCell>
     {/* <StyledTableCell ><Button onClick={()=>navigate(`/addResponse/${iduser_request}`)}>שליחת תגובה</Button></StyledTableCell> */}
-    <StyledTableCell ><Button onClick={()=>navigate(`/adminResponse` ,{ state: { iduser_request: {iduser_request}} })}>שליחת תגובה</Button></StyledTableCell>
+    <TableCell align="left"><Button onClick={()=>navigate(`/adminResponse` ,{ state: { iduser_request: {iduser_request}} })}>שליחת תגובה</Button></TableCell>
 
     
     {/* <StyledTableCell ><Button >לדירוג </Button></StyledTableCell> */}

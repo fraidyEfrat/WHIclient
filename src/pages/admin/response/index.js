@@ -1,7 +1,7 @@
 import React, { useState ,useEffect } from 'react'
 import { Navigate } from "react-router-dom";
 import axios from "axios";
-import { Table,TableBody } from '@mui/material';
+import { TableCell,Table,TableHead,TableRow } from '@mui/material';
 import Request from './Request';
 
 
@@ -36,13 +36,38 @@ const UserRequestList = () => {
 
   return (   
     <>
-    <div>---</div>
-    <Table style={{ paddingTop: "66px" }}>
+    <div style={{ paddingTop: "66px" }}>הפניות שצריכות טיפול</div>
+    {/* <Table style={{ paddingTop: "66px" }}>
       <TableBody>
-      {requestList?.length && requestList.map((request)=>{return <Request requestDetails={request} /> })}
+      {requestList?.length && requestList.map((request)=> <Request requestDetails={request} />)}
     </TableBody>
-    </Table>
-    </>
+    </Table> */}
+    <Table sx={{ width: '50%' }} sortMode="multiple" size="small" >
+        <TableHead >
+            <TableCell align="right" >נושא</TableCell>
+            <TableCell align="right">סטטוס</TableCell>
+            <TableCell align="right">בקשה</TableCell>
+            <TableCell align="right" sortable >תגובה</TableCell>
+            <TableCell align="right" >תאריך</TableCell>
+        </TableHead>
+        {/* {userRequests?.length && userRequests.map((user_request)=>  <TableBody> */}
+        {/* {.map((row) => ( */}
+          <TableRow
+          sx={{cursor:"pointer"}}
+          // onClick={()=>navigate("/add")}
+            key={"row.name"}
+          >
+            <TableCell align="right"  sx={{maxWidth:6, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{"subjectsubjectsubjectsubjectsubjectsubjectsubjectsubjectstsubject"}</TableCell>
+            <TableCell align="right">{"user_request.status"}</TableCell>
+            <TableCell align="right">{"user_request.request"}</TableCell>
+            <TableCell align="right">{"user_request.response"}</TableCell>
+            <TableCell align="right">{"user_request.date"}</TableCell>
+          </TableRow>
+          </Table>
+        {/* ))} */}
+      {/* </TableBody>  )} */}
+      {/* </Table> */} 
+   </>
   )
 }
 

@@ -4,7 +4,7 @@ import axios from "axios";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { InputTextarea } from "primereact/inputtextarea";
-
+// import '../../css/UserRequest.css';
 
 //
 const UserRequest = ({name,age}) => {
@@ -28,7 +28,6 @@ const UserRequest = ({name,age}) => {
               }
           } 
 
-        debugger;
         await axios.post("http://localhost:3600/api/user_request",  {subject,request}, config);
         alert("בקשתך נשלחה בהצלחה ניידעך במייל כאשר בקשתך תטופל בהקדם בהצלחה יום נעים מתנדבות מרכז מידע לבריאות האישה בני-ברק");
       } catch (err) {

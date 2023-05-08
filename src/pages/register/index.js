@@ -27,7 +27,7 @@ const Register = () => {
 
     try{
      const res= await axios.post("http://localhost:3600/api/auth/register",{firstName,lastName,email,city,dateOfBirth,address,id,phone,watsup,password,role});
-     debugger;
+
       console.log("after await");
       console.log(res.data);
       navigate("/login");
