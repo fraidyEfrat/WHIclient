@@ -52,31 +52,35 @@ const Login = () => {
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
-  
-    const handleClick = async () => {
-  
-      console.log("in handleClick");
-      try {
-        console.log("in try login");
-        await login();
-  
-      }
-      catch (err) {
-        setErr(err.response.data?.message);
-      }
+ 
+
+
+
+  const handleClick = async () => {
+
+    console.log("in handleClick");
+    try {
+      console.log("in try login");
+      await login();
+
     }
-  
-    const login = async () => {
-      const res = await axios.post("http://localhost:3600/api/auth/login", { email, password }, {
-        withCredentials: true,//in order to add cookies to api
-      });
-      console.log(res.data);
-      sessionStorage.setItem("token", res.data.accessToken)
-      sessionStorage.setItem("user name", res.data.user.firstName)
-      sessionStorage.setItem("role", res.data.user.role)
-      console.log(res.data.accessToken);
-      setRole(res.data.user.role);
+    catch (err) {
+      setErr(err.response.data?.message);
     }
+  }
+
+  const login = async () => {
+    const res = await axios.post("http://localhost:3600/api/auth/login", { email, password }, {
+      withCredentials: true,//in order to add cookies to api
+    });
+    console.log(res.data);
+    sessionStorage.setItem("token", res.data.accessToken)
+    sessionStorage.setItem("user name", res.data.user.firstName)
+    sessionStorage.setItem("role", res.data.user.role)
+    console.log(res.data.accessToken);
+    setRole(res.data.user.role);
+  }
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -96,7 +100,7 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleClick} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -135,11 +139,11 @@ const Login = () => {
               label="Remember me"
             />
             <Button
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              //onClick={() => handleLogin()}
+              onClick={handleClick}
             >
               Sign In
             </Button>
