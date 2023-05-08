@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -12,29 +12,40 @@ import { useContext } from "react";
 //
 const AdminResponse = () => {
   
-  console.log("in AdminResponse")
+const {idUserRequest} = useParams()
   const navigate = useNavigate()
   const [response,setResponse]=useState("");
+  const [result,setResult]=useState({});
   const [err, setErr] = useState(null);
   const location = useLocation();
-  const { iduser_request } = location.state.iduser_request;
-
+  const { iduser_request } = location.state;
+  const res=[];
 console.log("iduser_request:",iduser_request);
+useEffect(()=>{
+f()
+},[])
+const token = sessionStorage.getItem("token");
+const config = {
+  headers: {
+    'Authorization': 'Bearer ' + token
+  }
+}
+const  f = async()=>{
+  const {data}=await axios.get(`http://localhost:3600/api/user/${iduser_request}`,config);
+  console.log(data)
+  setResult(data)
+}
 
+console.log(idUserRequest)
 
   const handleClick=async (e)=>{
     
           setErr("");
           e.preventDefault();
-          const token = sessionStorage.getItem("token");
-          const config = {
-            headers: {
-              'Authorization': 'Bearer ' + token
-            }
-          }
+
           try {
        
-          const res=await axios.get(`http://localhost:3600/api/user/${iduser_request}`,config);
+        
           console.log("res")
           console.log(res.data.email)
           const email=res.data.email;
@@ -60,12 +71,13 @@ console.log("iduser_request:",iduser_request);
 return (
   
    <div className="user-request-page"  style={{ paddingTop: "50px" }}>
+
     <h1>אזור אישי</h1>
       
       <input onChange={(e)=>{setResponse(e.target.value)}} type="text" placeholder=" נא לכתוב את התגובה כאן  " ></input><br/><br/>
       
       <button onClick={handleClick}>שליחת התגובה</button> <br/><br/>
-     
+     gggggggggg
       
       </div>
    

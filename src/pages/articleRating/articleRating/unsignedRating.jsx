@@ -11,7 +11,7 @@ const UnsignedRating=()=>{
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = (event) => {
-      alert("Wwwwwwwwwww");
+
       event.stopPropagation();
       setOpen(true);
     };

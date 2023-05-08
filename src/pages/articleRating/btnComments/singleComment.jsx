@@ -11,20 +11,16 @@ const SingleComment = ({rows}) => {
     <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} aria-label="simple table">
       <TableHead>
-        <TableRow>
-          <TableCell align="left">שם משתמש</TableCell>
-          <TableCell align="left">תוכן</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
+        <TableCell align="right">שם משתמש</TableCell>
+          <TableCell align="right">תוכן</TableCell>
+       </TableHead>
+     <TableBody>
         {rows.map((row) => (
           <TableRow
             key={row.name}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
-             
-            </TableCell>
+           
             <TableCell align="right">{row.name}</TableCell>
             <TableCell align="right">{row.content}</TableCell>
          

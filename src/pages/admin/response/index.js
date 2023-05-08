@@ -1,13 +1,14 @@
 import React, { useState ,useEffect } from 'react'
 import { Navigate } from "react-router-dom";
 import axios from "axios";
-import { TableCell,Table,TableHead,TableRow } from '@mui/material';
+import { TableCell,Table,TableHead,TableRow,TableBody } from '@mui/material';
 import Request from './Request';
-
+import { useNavigate } from 'react-router-dom';
 
 const UserRequestList = () => {
     const [requestList, setRequestList] = useState([]);
     const [err, setErr] = useState(null);
+    const navigate=useNavigate()
 
     useEffect(() => {
       async function fetchData() {
@@ -52,17 +53,19 @@ const UserRequestList = () => {
         </TableHead>
         {/* {userRequests?.length && userRequests.map((user_request)=>  <TableBody> */}
         {/* {.map((row) => ( */}
-          <TableRow
-          sx={{cursor:"pointer"}}
-          // onClick={()=>navigate("/add")}
-            key={"row.name"}
+        <TableBody>
+        {requestList?.length && requestList.map((user_request)=>  <TableRow
+          sx={{cursor:"pointer",maxHeight:20}}
+          onClick={()=>navigate(`/adminResponse/${user_request.iduser_request}` ,{ state: { iduser_request: user_request.iduser_request} })}
+          key={"row.name"}
           >
-            <TableCell align="right"  sx={{maxWidth:6, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{"subjectsubjectsubjectsubjectsubjectsubjectsubjectsubjectstsubject"}</TableCell>
-            <TableCell align="right">{"user_request.status"}</TableCell>
-            <TableCell align="right">{"user_request.request"}</TableCell>
-            <TableCell align="right">{"user_request.response"}</TableCell>
-            <TableCell align="right">{"user_request.date"}</TableCell>
-          </TableRow>
+            <TableCell align="right">{user_request.subject}</TableCell>
+            <TableCell align="right" >{user_request.status}</TableCell>
+            <TableCell align="right" sx={{maxWidth:200, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.request}</TableCell>
+            <TableCell align="right" sx={{maxWidth:200, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.response}</TableCell>
+            <TableCell align="right">{user_request.date}</TableCell>
+          </TableRow>)}
+          </TableBody>
           </Table>
         {/* ))} */}
       {/* </TableBody>  )} */}

@@ -26,7 +26,6 @@ const ShowComments=({idarticle})=>{
     },[])
 
     useEffect(() =>{ rows=comments.map((comment) => {console.log("11",comment); return {content:comment.content, name:"aaa"}})
-    console.log("111111111111111111")
     },[comments])
    
 

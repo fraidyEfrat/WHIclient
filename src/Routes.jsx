@@ -32,6 +32,7 @@ import RequestList from './pages/user/personalArea/RequestList';
 import UpBarUser from './upBarUser'
 import defaultImage from './pages/images/logo.jpg';
 import Uploud from './uplouding';
+import ShowRequest from '../src/pages/user/request/ShowRequest'
 
 import GraphIcon from '@mui/icons-material/SignalCellularAlt';
 import ArticleIcon from '@mui/icons-material/Description';
@@ -101,11 +102,13 @@ function Routing() {
                         <Route path = {"/response"} element = {<Response/>}></Route>
                         <Route path = {"/addArticle"} element = {<AddArticle/>}></Route>
                         <Route path = {"/addCourse"} element = {<AddCourse/>}></Route>
-                        <Route path = {"/adminResponse"} element = {<AdminResponse/>}></Route>
-                     
+                        <Route path = {"/adminResponse/:idUserRequest"} element = {<AdminResponse/>}></Route>
+                        <Route path = {"/request"} element = {<Request/>}></Route>
+                        <Route path = {"/showRequest/:idUserRequest"} element = {<ShowRequest/>}></Route>
+                        
                   </Routes>
                 
-</Box>
+            </Box>
             </>
    
 
