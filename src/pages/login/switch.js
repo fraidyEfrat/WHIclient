@@ -78,8 +78,8 @@ export default function FloatingActionButtonZoom({val}) {
           variant="fullWidth"
           aria-label="action tabs example"
         >
-          <Tab hidden={value !== 1}  label="Log In" {...a11yProps(0)} />
-          <Tab label="Sign Up" {...a11yProps(1)} />
+          {/* <Tab hidden={value !== 1}  label="Log In" {...a11yProps(0)} />
+          <Tab label="Sign Up" {...a11yProps(1)} /> */}
         
         </Tabs>
     </Box>

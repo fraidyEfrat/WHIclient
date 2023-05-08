@@ -5,14 +5,15 @@ import PersonAddIcon from '@mui/icons-material/Person';
 import PopupState from "material-ui-popup-state";
 import Login from "./pages/login/index2";
 import Register from "./pages/register/index2";
-
-
+import { Link,useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../src/context/authContex";
 const UpBarUnsigned=()=>{
 
     const{setRole}=useContext(AuthContext);
     sessionStorage.removeItem("token", "");
+    const navigate = useNavigate()
+
     setRole("UNSIGNED");
     return(<>
    
@@ -20,7 +21,15 @@ const UpBarUnsigned=()=>{
     <PersonAddIcon />
         רישום
     </Button> */}
-    <Register></Register>
+    {/* <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={()=>navigate(`/register` ,{ state: { open: {open}} })} >
+            <PersonAddIcon />
+            רישום
+            </Button> */}
+            <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={()=>navigate(`/register`)} >
+            <PersonAddIcon />
+            רישום
+            </Button>
+    {/* <Register></Register> */}
     <Login></Login>
     
     </>)

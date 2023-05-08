@@ -17,16 +17,17 @@ const style = {
 };
 
 export default function Register() {
-    const [open, setOpen] = React.useState(false);
+    console.log("in register")
+    const [open, setOpen] = React.useState(true);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
         <div>
-            <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={handleOpen} >
+            {/* <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={handleOpen} >
             <PersonAddIcon />
             רישום
-            </Button>
+            </Button> */}
              <Modal
                 open={open}
                 onClose={handleClose}

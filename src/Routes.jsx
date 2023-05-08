@@ -6,10 +6,10 @@ import Container from '@mui/material/Container';
 import { Routes, Route } from "react-router-dom"
 import { Link } from 'react-router-dom';
 import Home from './pages/home';
-import Register from './pages/register/index2';
+import Register from './pages/register/index3';
 import Courses from './pages/courses';
 import Request from './pages/user/request';
-import Login from './pages/login/index2';
+import Login from './pages/login/index3';
 import Logout from './pages/logout';
 import Admin from './pages/admin';
 import Response from './pages/admin/response';
@@ -26,7 +26,6 @@ import UpBarAdmin from './upBarAdmin';
 import * as React from 'react';
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-// import RequestList from './pages/user/personal/RequestList';
 import PersonalArea from './pages/user/personalArea';
 import RequestList from './pages/user/personalArea/RequestList';
 import UpBarUser from './upBarUser'
