@@ -38,11 +38,6 @@ const UserRequestList = () => {
   return (   
     <>
     <div style={{ paddingTop: "66px" }}>הפניות שצריכות טיפול</div>
-    {/* <Table style={{ paddingTop: "66px" }}>
-      <TableBody>
-      {requestList?.length && requestList.map((request)=> <Request requestDetails={request} />)}
-    </TableBody>
-    </Table> */}
     <Table sx={{ width: '50%' }} sortMode="multiple" size="small" >
         <TableHead >
             <TableCell align="right" >נושא</TableCell>

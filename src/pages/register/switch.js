@@ -41,9 +41,9 @@ function a11yProps(index) {
   };
 }
 
-export default function FloatingActionButtonZoom({val}) {
+export default function FloatingActionButtonZoom() {
   const theme = useTheme();
-  const [value, setValue] = React.useState(val);
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -78,9 +78,8 @@ export default function FloatingActionButtonZoom({val}) {
           variant="fullWidth"
           aria-label="action tabs example"
         >
-          {/* <Tab hidden={value !== 1}  label="Log In" {...a11yProps(0)} />
-          <Tab label="Sign Up" {...a11yProps(1)} /> */}
-        
+          <Tab hidden={value !== 1}  label="Log In" {...a11yProps(0)} />
+          <Tab label="Sign Up" {...a11yProps(1)} />
         </Tabs>
     </Box>
   );

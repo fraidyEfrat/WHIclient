@@ -26,6 +26,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import { LocationCity } from '@mui/icons-material';
 import { InputLabel,Input,InputAdornment,IconButton } from '@material-ui/core';
 import { Visibility,VisibilityOff } from '@mui/icons-material';
+import Modal from '@material-ui/core/Modal';
 
 
 
@@ -57,17 +58,26 @@ const Register = () => {
     const [watsup,setWatsup]=useState("");
     const [password,setPassword]=useState("");
     const [role,setRole]=useState(1);
-  
+    const [open, setOpen] = useState(true);
     const [err, setErr] = useState(null);
     const navigate=useNavigate();
-  
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const style = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      p: 4,
+    };
   
     const handleRegister=async(e)=>{
       setErr("");
       e.preventDefault();
       try{
         const res= await axios.post("http://localhost:3600/api/auth/register",{firstName,lastName,email,city,dateOfBirth,address,id,phone,watsup,password,role});
-   
+        debugger;
          console.log("after await");
          console.log(res.data);
          navigate("/login");
@@ -85,7 +95,12 @@ const Register = () => {
   };
 
   return (
-
+    <Modal
+    open={open}
+    onClose={handleClose}
+    aria-labelledby="modal-modal-title"
+    aria-describedby="modal-modal-description">
+    <Box sx={style}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -280,7 +295,6 @@ const Register = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleRegister}
             >
               Sign Up
             </Button>
@@ -296,6 +310,8 @@ const Register = () => {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
+    </Box>
+     </Modal>
   );
 }
 export default Register;

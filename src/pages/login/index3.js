@@ -19,8 +19,7 @@ import { useContext,useState } from "react";
 import { AuthContext } from "../../context/authContex";
 import { InputLabel,Input,InputAdornment,IconButton } from '@material-ui/core';
 import { Visibility,VisibilityOff } from '@mui/icons-material';
-import { Dialog } from 'primereact/dialog';
-
+import Modal from '@material-ui/core/Modal';
 
 function Copyright(props) {
   return (
@@ -35,6 +34,14 @@ function Copyright(props) {
   );
 }
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  p: 4,
+};
+
 const theme = createTheme();
 
 const Login = () => {
@@ -43,7 +50,8 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [err, setErr] = useState(null);
     const { setRole, setIduser } = useContext(AuthContext);
-  
+    const [open, setOpen] = useState(true);
+
 
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -80,9 +88,16 @@ const Login = () => {
     console.log(res.data.accessToken);
     setRole(res.data.user.role);
   }
-
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
+    <Modal
+    open={open}
+    onClose={handleClose}
+    aria-labelledby="modal-modal-title"
+    aria-describedby="modal-modal-description">
+    <Box sx={style}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -161,6 +176,8 @@ const Login = () => {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+    </Box>
+     </Modal>
   );
 }
 export default Login;
