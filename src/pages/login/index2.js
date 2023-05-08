@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal, { modalUnstyledClasses } from '@mui/material/Modal';
 import FloatingActionButtonZoom from './switch';
+import PersonAddIcon from '@mui/icons-material/Person';
 
 
 const style = {
@@ -21,17 +22,18 @@ export default function Login() {
 
     return (
         <div>
-            <br></br><br></br><br></br> <br></br>
-            <Button onClick={handleOpen}>Log In</Button>
-            <Modal
+            <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={handleOpen} >
+            <PersonAddIcon />
+            כניסה
+            </Button>
+             <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <FloatingActionButtonZoom ></FloatingActionButtonZoom>
-{/* handleClose={this.handleClose} */}
+                    <FloatingActionButtonZoom val={0}></FloatingActionButtonZoom>
                 </Box>
             </Modal>
             

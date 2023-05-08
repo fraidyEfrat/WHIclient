@@ -37,11 +37,6 @@ const UserRequestList = () => {
   return (   
     <>
     <div style={{ paddingTop: "66px" }}>הפניות שצריכות טיפול</div>
-    {/* <Table style={{ paddingTop: "66px" }}>
-      <TableBody>
-      {requestList?.length && requestList.map((request)=> <Request requestDetails={request} />)}
-    </TableBody>
-    </Table> */}
     <Table sx={{ width: '50%' }} sortMode="multiple" size="small" >
         <TableHead >
             <TableCell align="right" >נושא</TableCell>
@@ -52,7 +47,19 @@ const UserRequestList = () => {
         </TableHead>
         {/* {userRequests?.length && userRequests.map((user_request)=>  <TableBody> */}
         {/* {.map((row) => ( */}
-          <TableRow
+         {requestList?.length && requestList.map((user_request)=><TableRow
+          sx={{cursor:"pointer"}}
+          // onClick={()=>navigate("/add")}
+            key={"row.name"}
+          >
+            <TableCell align="right" sx={{minWidth:15,minHeight:7}}  >{user_request.subject}</TableCell>
+            <TableCell align="right" sx={{maxWidth:15,minWidth:15, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.status}</TableCell>
+            <TableCell align="right" sx={{maxWidth:15,minWidth:15, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.request}</TableCell>
+            <TableCell align="right" sx={{maxWidth:15,minWidth:15, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.response}</TableCell>
+            <TableCell align="right" sx={{maxWidth:15,minWidth:15, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.date}</TableCell>
+          </TableRow> )
+         }
+          {/* <TableRow
           sx={{cursor:"pointer"}}
           // onClick={()=>navigate("/add")}
             key={"row.name"}
@@ -62,7 +69,7 @@ const UserRequestList = () => {
             <TableCell align="right">{"user_request.request"}</TableCell>
             <TableCell align="right">{"user_request.response"}</TableCell>
             <TableCell align="right">{"user_request.date"}</TableCell>
-          </TableRow>
+          </TableRow> */}
           </Table>
         {/* ))} */}
       {/* </TableBody>  )} */}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Login from '../login/index3';
+import Login from '../login/index2';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -286,9 +286,9 @@ const Register = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <NavLink to="/Login" variant="body2">
+                {/* <NavLink to="/Login" variant="body2">
                   Already have an account? Sign in
-                </NavLink>
+                </NavLink> */}
               </Grid>
             </Grid>
           </Box>

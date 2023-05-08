@@ -151,9 +151,9 @@ const Login = () => {
               <Grid item xs>
               </Grid>
               <Grid item>
-                <NavLink to='/signUp' variant="body2">
+                {/* <NavLink to='/signUp' variant="body2">
                   {"Don't have an account? Sign Up"}
-                </NavLink>
+                </NavLink> */}
               </Grid>
             </Grid>
           </Box>
