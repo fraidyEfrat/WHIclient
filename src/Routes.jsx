@@ -1,4 +1,5 @@
-import { AuthContext } from './context/authContex'
+ import { AuthContext } from './context/authContex'
+
 import { useContext } from "react";
 import {AppBar, Toolbar, Box, Avatar} from '@mui/material';
 import Container from '@mui/material/Container';
@@ -16,7 +17,7 @@ import AdminResponse from './pages/admin/response/AdminResponse';
 import ArticlesList from './pages/articleRating';
 import ShowArticle from './pages/articleRating/btnRead/showArticle';
 import ShowComments from './pages/articleRating/btnComments/showComments';
-import AddArticle from './pages/admin/AddArticle';
+import AddArticle from './pages/articleRating/index'
 import AddCourse from './pages/admin/AddCourse';
 import Information from './pages/information';
 import Statistics from './pages/admin/statistics';

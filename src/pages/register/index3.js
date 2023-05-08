@@ -276,10 +276,11 @@ const Register = () => {
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleRegister}
             >
               Sign Up
             </Button>
