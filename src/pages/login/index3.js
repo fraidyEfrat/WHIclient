@@ -20,6 +20,7 @@ import { AuthContext } from "../../context/authContex";
 import { InputLabel,Input,InputAdornment,IconButton } from '@material-ui/core';
 import { Visibility,VisibilityOff } from '@mui/icons-material';
 import Modal from '@material-ui/core/Modal';
+import register from '../register/index3'
 
 function Copyright(props) {
   return (
@@ -44,7 +45,7 @@ const style = {
 
 const theme = createTheme();
 
-const Login = () => {
+const LoginDetails = () => {
   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -91,12 +92,98 @@ const Login = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // return (
+  //   <div>
+  //   <Modal
+  //   open={open}
+  //   onClose={handleClose}
+  //   aria-labelledby="modal-modal-title"
+  //   aria-describedby="modal-modal-description">
+  //   <Box sx={style}>
+  //   <ThemeProvider theme={theme}>
+  //     <Container component="main" maxWidth="xs">
+  //       <CssBaseline />
+  //       <Box
+  //         sx={{
+  //           marginTop: 8,
+  //           display: 'flex',
+  //           flexDirection: 'column',
+  //           alignItems: 'center',
+  //         }}
+  //       >
+  //         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+  //           <LockOutlinedIcon />
+  //         </Avatar>
+  //         <Typography component="h1" variant="h5">
+  //           Sign in
+  //         </Typography>
+  //         <Box component="form" noValidate sx={{ mt: 1 }}>
+  //           <TextField
+  //             margin="normal"
+  //             required
+  //             fullWidth
+  //             onChange={(e) => { setEmail(e.target.value) }}
+  //             id="email"
+  //             label="email"
+  //             name="email"
+  //             autoComplete="email"
+  //             autoFocus
+  //           />
+  //           <TextField
+  //             margin="normal"
+  //             required
+  //             fullWidth
+  //             onChange={(e) => { setPassword(e.target.value) }}
+  //             name="password"
+  //             label="Password"
+  //                 type={showPassword ? 'text' : 'password'}
+  //             id="password"
+  //             autoComplete="current-password"
+  //             InputProps={{
+  //               startAdornment: (
+  //                   <IconButton
+  //                   aria-label="toggle password visibility"
+  //                   onClick={handleClickShowPassword}
+  //                   onMouseDown={handleMouseDownPassword}
+  //                 >
+  //                   {showPassword ? <VisibilityOff /> : <Visibility />}
+  //                 </IconButton>
+  //               ),
+  //             }}
+  //           />
+  //           <FormControlLabel
+  //             control={<Checkbox value="remember" color="primary" />}
+  //             label="Remember me"
+  //           />
+  //           <Button
+  //             type="button"
+  //             fullWidth
+  //             variant="contained"
+  //             sx={{ mt: 3, mb: 2 }}
+  //             onClick={handleClick}
+  //           >
+  //             Sign In
+  //           </Button>
+  //           <Grid container>
+  //             <Grid item xs>
+  //             </Grid>
+  //             <Grid item>
+  //               <NavLink to='/register' variant="body2">
+  //                 {"Don't have an account? Sign Up"}
+  //               </NavLink>
+  //             </Grid>
+  //           </Grid>
+  //         </Box>
+  //       </Box>
+  //       <Copyright sx={{ mt: 8, mb: 4 }} />
+  //     </Container>
+  //   </ThemeProvider>
+  //   </Box>
+  //    </Modal>
+  //    </div>
+  // );
   return (
-    <Modal
-    open={open}
-    onClose={handleClose}
-    aria-labelledby="modal-modal-title"
-    aria-describedby="modal-modal-description">
+   
     <Box sx={style}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -166,7 +253,7 @@ const Login = () => {
               <Grid item xs>
               </Grid>
               <Grid item>
-                <NavLink to='/signUp' variant="body2">
+                <NavLink to='/register' variant="body2">
                   {"Don't have an account? Sign Up"}
                 </NavLink>
               </Grid>
@@ -177,7 +264,6 @@ const Login = () => {
       </Container>
     </ThemeProvider>
     </Box>
-     </Modal>
   );
 }
-export default Login;
+export default LoginDetails;

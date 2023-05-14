@@ -6,6 +6,7 @@ import Modal, { modalUnstyledClasses } from '@mui/material/Modal';
 // import FloatingActionButtonZoom from './switch';
 import FloatingActionButtonZoom from '../login/switch'
 import PersonAddIcon from '@mui/icons-material/Person';
+import RegisterDetails from './index3';
 
 
 const style = {
@@ -14,6 +15,9 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     p: 4,
+    minwidth:'20%',
+    maxwidth:'20%',
+    
 };
 
 export default function Register() {
@@ -23,7 +27,7 @@ export default function Register() {
     const handleClose = () => setOpen(false);
 
     return (
-        <div>
+        <div >
             {/* <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={handleOpen} >
             <PersonAddIcon />
             רישום
@@ -33,9 +37,11 @@ export default function Register() {
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                
             >
                 <Box sx={style}>
-                    <FloatingActionButtonZoom val={1}></FloatingActionButtonZoom>
+                    {/* <FloatingActionButtonZoom val={1}></FloatingActionButtonZoom> */}
+                    <RegisterDetails></RegisterDetails>
                 </Box>
             </Modal>
             

@@ -20,18 +20,18 @@ const ImgButton = styled(ButtonBase)(({ theme }) => ({
     width: '100% !important', // Overrides inline-style
     height: 100,
   },
-  // '&:hover, &.Mui-focusVisible': {
-  //   zIndex: 1,
-  //   '& .MuiImageBackdrop-root': {
-  //     opacity: 0.15,
-  //   },
-  //   '& .MuiImageMarked-root': {
-  //     opacity: 0,
-  //   },
-  //   '& .MuiTypography-root': {
-  //     border: '4px solid currentColor',
-  //   },
-  // },
+  '&:hover, &.Mui-focusVisible': {
+    zIndex: 1,
+    '& .MuiImageBackdrop-root': {
+      opacity: 0.15,
+    },
+    '& .MuiImageMarked-root': {
+      opacity: 0,
+    },
+    // '& .MuiTypography-root': {
+    //   border: '4px solid currentColor',
+    // },
+  },
 }));
 
 const ImageSrc = styled('span')({

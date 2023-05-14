@@ -45,7 +45,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-const Register = () => {
+const RegisterDetails = () => {
   
     const [firstName,setFirstName]=useState("");
     const [lastName,setLastName]=useState("");
@@ -78,9 +78,9 @@ const Register = () => {
       try{
         const res= await axios.post("http://localhost:3600/api/auth/register",{firstName,lastName,email,city,dateOfBirth,address,id,phone,watsup,password,role});
         debugger;
-         console.log("after await");
-         console.log(res.data);
-         navigate("/login");
+        console.log("after await");
+        console.log("navigate");
+        navigate("/login");
        }catch(err){
          setErr(err.response.data?.message);
        }
@@ -295,12 +295,13 @@ const Register = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleRegister}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <NavLink to="/Login" variant="body2">
+                <NavLink to="/login" variant="body2">
                   Already have an account? Sign in
                 </NavLink>
               </Grid>
@@ -314,4 +315,4 @@ const Register = () => {
      </Modal>
   );
 }
-export default Register;
+export default RegisterDetails;

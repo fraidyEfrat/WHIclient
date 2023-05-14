@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal, { modalUnstyledClasses } from '@mui/material/Modal';
 import FloatingActionButtonZoom from './switch';
 import PersonAddIcon from '@mui/icons-material/Person';
+import LoginDetails from './index3';
 
 
 const style = {
@@ -16,16 +17,16 @@ const style = {
 };
 
 export default function Login() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
         <div>
-            <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={handleOpen} >
+            {/* <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={handleOpen} >
             <PersonAddIcon />
             כניסה
-            </Button>
+            </Button> */}
              <Modal
                 open={open}
                 onClose={handleClose}
@@ -33,7 +34,8 @@ export default function Login() {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <FloatingActionButtonZoom val={0}></FloatingActionButtonZoom>
+                    {/* <FloatingActionButtonZoom val={0}></FloatingActionButtonZoom> */}
+                    <LoginDetails ></LoginDetails>
                 </Box>
             </Modal>
             
