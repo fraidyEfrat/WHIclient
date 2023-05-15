@@ -32,18 +32,18 @@ export default function Register() {
             <PersonAddIcon />
             רישום
             </Button> */}
-             <Modal
+             {/* <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
                 
-            >
+            > */}
                 <Box sx={style}>
                     {/* <FloatingActionButtonZoom val={1}></FloatingActionButtonZoom> */}
                     <RegisterDetails></RegisterDetails>
                 </Box>
-            </Modal>
+            {/* </Modal> */}
             
         </div>
         

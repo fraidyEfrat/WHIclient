@@ -123,32 +123,6 @@ export default function ImageButten({ course }) {
           {(popupState) => (
             <div>
               <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
-              {/* <Button  {...bindTrigger(popupState)}
-        
-               >
-            פרטים
-          </Button>
-          <Popover
-            {...bindPopover(popupState)}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-          >
-            <Typography sx={{ p: 2 }}>כתובת:{address}<br></br>עלות:{cost}<br></br>מס' שיעורים:{numLecture}<br></br> מיועד לגילאים:{minage}-{maxage}</Typography>
-          </Popover> */}
-          {/* <PopupState variant="popover" popupId="demo-popup-popover">
-          {(popupState) => (
-            <div>
-              <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
-          <CourseDetails course={course}></CourseDetails>
-            </div>
-          )}
-        </PopupState> */}
          <CourseDetails course={course}></CourseDetails>
             </div>
           )}

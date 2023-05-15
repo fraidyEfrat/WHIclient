@@ -14,6 +14,8 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     p: 4,
+    minwidth:'20%',
+    maxwidth:'20%',
 };
 
 export default function Login() {
@@ -23,21 +25,10 @@ export default function Login() {
 
     return (
         <div>
-            {/* <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={handleOpen} >
-            <PersonAddIcon />
-            כניסה
-            </Button> */}
-             <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    {/* <FloatingActionButtonZoom val={0}></FloatingActionButtonZoom> */}
+           
+                {/* <Box sx={style}> */}
                     <LoginDetails ></LoginDetails>
-                </Box>
-            </Modal>
+                {/* </Box> */}
             
         </div>
         

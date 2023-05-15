@@ -20,7 +20,8 @@ import { AuthContext } from "../../context/authContex";
 import { InputLabel,Input,InputAdornment,IconButton } from '@material-ui/core';
 import { Visibility,VisibilityOff } from '@mui/icons-material';
 import Modal from '@material-ui/core/Modal';
-import register from '../register/index3'
+import Register from '../register/index3';
+import { blue } from '@mui/material/colors';
 
 function Copyright(props) {
   return (
@@ -35,13 +36,20 @@ function Copyright(props) {
   );
 }
 
+
+
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
+  width: '40%',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
   p: 4,
 };
+
 
 const theme = createTheme();
 
@@ -52,6 +60,8 @@ const LoginDetails = () => {
     const [err, setErr] = useState(null);
     const { setRole, setIduser } = useContext(AuthContext);
     const [open, setOpen] = useState(true);
+    const[register,setRegister]=useState(false);
+
 
 
     const [showPassword, setShowPassword] = React.useState(false);
@@ -61,6 +71,8 @@ const LoginDetails = () => {
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
+
+    
  
 
 
@@ -77,6 +89,7 @@ const LoginDetails = () => {
       setErr(err.response.data?.message);
     }
   }
+ 
 
   const login = async () => {
     const res = await axios.post("http://localhost:3600/api/auth/login", { email, password }, {
@@ -183,7 +196,13 @@ const LoginDetails = () => {
   //    </div>
   // );
   return (
-   
+    <>
+    {register?<Register></Register>:
+    <Modal
+    open={open}
+    onClose={handleClose}
+    aria-labelledby="modal-modal-title"
+    aria-describedby="modal-modal-description">
     <Box sx={style}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -203,6 +222,8 @@ const LoginDetails = () => {
             Sign in
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
+          <Grid container spacing={2}>
+          <Grid item xs={12} >
             <TextField
               margin="normal"
               required
@@ -214,6 +235,8 @@ const LoginDetails = () => {
               autoComplete="email"
               autoFocus
             />
+            </Grid>
+            <Grid item xs={12} >
             <TextField
               margin="normal"
               required
@@ -236,10 +259,12 @@ const LoginDetails = () => {
                 ),
               }}
             />
+            </Grid>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            </Grid>
             <Button
               type="button"
               fullWidth
@@ -253,9 +278,19 @@ const LoginDetails = () => {
               <Grid item xs>
               </Grid>
               <Grid item>
-                <NavLink to='/register' variant="body2">
+                <br></br>
+                {/* <NavLink to='/register' variant="body2">
                   {"Don't have an account? Sign Up"}
-                </NavLink>
+                </NavLink> */}
+                 <Link
+                      component="button"
+                      variant="body2"
+                      onClick={() => {
+                        setRegister(true)
+                      }}
+                    >
+                      Don't have an account? Sign Up
+                    </Link>
               </Grid>
             </Grid>
           </Box>
@@ -264,6 +299,8 @@ const LoginDetails = () => {
       </Container>
     </ThemeProvider>
     </Box>
+    </Modal>}
+</>
   );
 }
 export default LoginDetails;

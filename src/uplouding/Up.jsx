@@ -12,7 +12,7 @@ const Up = ({setContent,content}) => {
         <>    
             <div className="new-book">
                 <form>
-                    {file}
+                    {/* {file} */}
                     <Uploader content={content} setContent={setContent} file={file} setFile={setFile} setName={setName} label="Add File" />
                     {err && err}
                 </form>

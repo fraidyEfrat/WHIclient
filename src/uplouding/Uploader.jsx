@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FileUpload } from 'primereact/fileupload';
 import { useParams } from 'react-router-dom';
+import { MuiFileInput } from 'mui-file-input';
+import { Button } from "@mui/material";
+import ImageIcon from '@mui/icons-material/Image';
+
 
 const token = sessionStorage.getItem("token");
 var idFolder;
@@ -28,7 +32,7 @@ const AddFile = async (idFolder)=>{
 // }
 
 const Uploader = ({content, setContent, file, setFile, setName, label }) => {
-  const [selectFile, setSelectFile] = useState();
+  const [selectFile, setSelectFile] = useState(null);
   const [selected, setSelected] = useState(false);
   const selectedFunc = async () => {
     console.log("here 1!");
@@ -62,17 +66,28 @@ console.log("here2!");
   const onSelectFile = (e) => {
     setSelected(true)
     console.log("e.target")
-    console.log(e.target)
+    // console.log(e.target.files[0])
     setSelectFile(e.target.files[0])
   }
+
+  function handleButtonClick() {
+    document.getElementById('file-input').click();
+  }
+  
+
 
   return (
     <>
       {selected ? selectedFunc() : <></>}
-      <label htmlFor="file"> {label ? label : "File"} </label>
       {/* <FileUpload onSelect={handleFileUpload} multiple accept="application\pdf" /> */}
-      <input type="file" onChange={onSelectFile} name="file" />
-      {/* <input type="file"  name="file" /> */}
+      {/* <input type="file"  onChange={onSelectFile} name="file" />
+      <MuiFileInput
+        placeholder="Insert a file"
+        value={selectFile}
+        onChange={onSelectFile}
+      /> */}
+       <Button onClick={handleButtonClick}>{selectFile ?  <ImageIcon></ImageIcon> : "Select File"}</Button><br></br>
+        <input type="file"  onClick={onSelectFile} name="file" id="file-input" />
 
     </>
   )

@@ -31,8 +31,12 @@ const UpBarUnsigned=()=>{
             <PersonAddIcon />
             רישום
             </Button>
+            <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={()=>navigate(`/login`)} >
+            <PersonAddIcon />
+            כניסה
+            </Button>
     {/* <Register></Register> */}
-    <Login></Login>
+    {/* <Login></Login> */}
     
     </>)
       

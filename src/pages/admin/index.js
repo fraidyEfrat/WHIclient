@@ -12,7 +12,7 @@ const Admin=()=>{
     <Button onClick={()=>navigate("/response")}>הפניות הלא מטופלות</Button>
     <Button onClick={()=>navigate("/response")}>הפניות שבטיפול</Button>
     <Button onClick={()=>navigate("/response")}>הפניות שטופלו לשנות 10 10</Button><br/><br/><br/><br/>
-    <Button onClick={()=>navigate("/addArticle")}>הוספת מאמרים</Button>
+    <Button onClick={()=>navigate("/AddArticle")}>הוספת מאמרים</Button>
     <Button onClick={()=>navigate("/addCourse")}>הוספת קורסים</Button>
     <Button onClick={()=>navigate("/articleRating")}>עריכת מאמרים</Button>
     <Button onClick={()=>navigate("/courses")}>עריכת קורסים</Button>

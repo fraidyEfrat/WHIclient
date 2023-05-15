@@ -16,7 +16,7 @@ import AdminResponse from './pages/admin/response/AdminResponse';
 import ArticlesList from './pages/articleRating';
 import ShowArticle from './pages/articleRating/btnRead/showArticle';
 import ShowComments from './pages/articleRating/btnComments/showComments';
-import AddArticle from './pages/articleRating/index'
+//import AddArticle from './pages/articleRating/index'
 import AddCourse from './pages/admin/AddCourse';
 import Information from './pages/information';
 import Statistics from './pages/admin/statistics';
@@ -39,6 +39,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ManegmentIcon from '@mui/icons-material/ManageAccounts';
 import Personal from '@mui/icons-material/Face3';
 import EmailIcon from '@mui/icons-material/ForwardToInbox';
+import AddArticle from './pages/admin/addArticle'
 
 
 // {url : "/request", title: "בקשה", element : <Request/>,icon:<HomeIcon/>},

@@ -5,6 +5,10 @@ import { useParams } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../context/authContex'
 import { useContext } from "react";
+import { Button } from "@mui/material";
+import { InputTextarea } from "primereact/inputtextarea";
+import Quill from "../addArticle/react-quill";
+
 
 
 
@@ -69,18 +73,16 @@ console.log(idUserRequest)
     };
  
 return (
-  
-   <div className="user-request-page"  style={{ paddingTop: "50px" }}>
-
-    <h1>אזור אישי</h1>
-      
-      <input onChange={(e)=>{setResponse(e.target.value)}} type="text" placeholder=" נא לכתוב את התגובה כאן  " ></input><br/><br/>
-      
-      <button onClick={handleClick}>שליחת התגובה</button> <br/><br/>
-     gggggggggg
-      
-      </div>
-   
+  <div className="user-request-page" style={{paddingTop:"70px"}}>
+  <h1 style={{fontSize: 35}}>שליחת תגובה</h1>
+  {/* <TextField onChange={(e)=>{setRequest(e.target.value)}} type="text" placeholder=" נא לכתוב את השאלה כאן " ></TextField><br/><br/> */}
+  <div className="p-float-label">
+            <InputTextarea id="request"  onChange={(e) => setResponse(e.target.value)} rows={10} cols={50} placeholder=" נא לכתוב את התגובה כאן "/>
+   </div>
+   {/* <Quill setContent={setResponse}></Quill> */}
+  <Button style={{fontSize: 20}} onClick={handleClick}>שליחת התגובה</Button> <br/><br/>
+ 
+  </div>
   
   )}
 
