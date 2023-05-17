@@ -57,7 +57,7 @@ const[flag,setFlag]=useState(false);
              <Button onClick={handleClose}>סגור</Button>
              <Button onClick={()=>setRegister(true)}>רישום</Button>
              {/* <Link to="/register">רישום</Link> */}
-            { register?<Register></Register>:<></>}
+            { register?<Register isOpen={true} setRegister={setRegister}></Register>:<></>}
            </DialogActions>
          </Dialog>
          

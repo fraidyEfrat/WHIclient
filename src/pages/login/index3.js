@@ -19,10 +19,7 @@ import { useContext,useState } from "react";
 import { AuthContext } from "../../context/authContex";
 import { InputLabel,Input,InputAdornment,IconButton } from '@material-ui/core';
 import { Visibility,VisibilityOff } from '@mui/icons-material';
-import Modal from '@material-ui/core/Modal';
-import Register from '../register/index3';
-import { blue } from '@mui/material/colors';
-
+import { Dialog } from 'primereact/dialog';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -35,62 +32,31 @@ function Copyright(props) {
     </Typography>
   );
 }
-
-
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '40%',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-
 const theme = createTheme();
-
-const LoginDetails = () => {
+const Login = () => {
   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [err, setErr] = useState(null);
     const { setRole, setIduser } = useContext(AuthContext);
-    const [open, setOpen] = useState(true);
-    const[register,setRegister]=useState(false);
-
-
-
+  
     const [showPassword, setShowPassword] = React.useState(false);
-
     const handleClickShowPassword = () => setShowPassword((show) => !show);
   
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
-
-    
  
-
-
-
   const handleClick = async () => {
-
     console.log("in handleClick");
     try {
       console.log("in try login");
       await login();
-
     }
     catch (err) {
       setErr(err.response.data?.message);
     }
   }
- 
-
   const login = async () => {
     const res = await axios.post("http://localhost:3600/api/auth/login", { email, password }, {
       withCredentials: true,//in order to add cookies to api
@@ -102,108 +68,7 @@ const LoginDetails = () => {
     console.log(res.data.accessToken);
     setRole(res.data.user.role);
   }
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  // return (
-  //   <div>
-  //   <Modal
-  //   open={open}
-  //   onClose={handleClose}
-  //   aria-labelledby="modal-modal-title"
-  //   aria-describedby="modal-modal-description">
-  //   <Box sx={style}>
-  //   <ThemeProvider theme={theme}>
-  //     <Container component="main" maxWidth="xs">
-  //       <CssBaseline />
-  //       <Box
-  //         sx={{
-  //           marginTop: 8,
-  //           display: 'flex',
-  //           flexDirection: 'column',
-  //           alignItems: 'center',
-  //         }}
-  //       >
-  //         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-  //           <LockOutlinedIcon />
-  //         </Avatar>
-  //         <Typography component="h1" variant="h5">
-  //           Sign in
-  //         </Typography>
-  //         <Box component="form" noValidate sx={{ mt: 1 }}>
-  //           <TextField
-  //             margin="normal"
-  //             required
-  //             fullWidth
-  //             onChange={(e) => { setEmail(e.target.value) }}
-  //             id="email"
-  //             label="email"
-  //             name="email"
-  //             autoComplete="email"
-  //             autoFocus
-  //           />
-  //           <TextField
-  //             margin="normal"
-  //             required
-  //             fullWidth
-  //             onChange={(e) => { setPassword(e.target.value) }}
-  //             name="password"
-  //             label="Password"
-  //                 type={showPassword ? 'text' : 'password'}
-  //             id="password"
-  //             autoComplete="current-password"
-  //             InputProps={{
-  //               startAdornment: (
-  //                   <IconButton
-  //                   aria-label="toggle password visibility"
-  //                   onClick={handleClickShowPassword}
-  //                   onMouseDown={handleMouseDownPassword}
-  //                 >
-  //                   {showPassword ? <VisibilityOff /> : <Visibility />}
-  //                 </IconButton>
-  //               ),
-  //             }}
-  //           />
-  //           <FormControlLabel
-  //             control={<Checkbox value="remember" color="primary" />}
-  //             label="Remember me"
-  //           />
-  //           <Button
-  //             type="button"
-  //             fullWidth
-  //             variant="contained"
-  //             sx={{ mt: 3, mb: 2 }}
-  //             onClick={handleClick}
-  //           >
-  //             Sign In
-  //           </Button>
-  //           <Grid container>
-  //             <Grid item xs>
-  //             </Grid>
-  //             <Grid item>
-  //               <NavLink to='/register' variant="body2">
-  //                 {"Don't have an account? Sign Up"}
-  //               </NavLink>
-  //             </Grid>
-  //           </Grid>
-  //         </Box>
-  //       </Box>
-  //       <Copyright sx={{ mt: 8, mb: 4 }} />
-  //     </Container>
-  //   </ThemeProvider>
-  //   </Box>
-  //    </Modal>
-  //    </div>
-  // );
   return (
-    <>
-    {register?<Register></Register>:
-    <Modal
-    open={open}
-    onClose={handleClose}
-    aria-labelledby="modal-modal-title"
-    aria-describedby="modal-modal-description">
-    <Box sx={style}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -222,8 +87,6 @@ const LoginDetails = () => {
             Sign in
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
-          <Grid container spacing={2}>
-          <Grid item xs={12} >
             <TextField
               margin="normal"
               required
@@ -235,8 +98,6 @@ const LoginDetails = () => {
               autoComplete="email"
               autoFocus
             />
-            </Grid>
-            <Grid item xs={12} >
             <TextField
               margin="normal"
               required
@@ -259,12 +120,10 @@ const LoginDetails = () => {
                 ),
               }}
             />
-            </Grid>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            </Grid>
             <Button
               type="button"
               fullWidth
@@ -278,19 +137,11 @@ const LoginDetails = () => {
               <Grid item xs>
               </Grid>
               <Grid item>
-                <br></br>
-                {/* <NavLink to='/register' variant="body2">
+                <NavLink to='/signUp' variant="body2"/>
+                {/* <NavLink to='/signUp' variant="body2">
                   {"Don't have an account? Sign Up"}
+                </NavLink>
                 </NavLink> */}
-                 <Link
-                      component="button"
-                      variant="body2"
-                      onClick={() => {
-                        setRegister(true)
-                      }}
-                    >
-                      Don't have an account? Sign Up
-                    </Link>
               </Grid>
             </Grid>
           </Box>
@@ -298,9 +149,6 @@ const LoginDetails = () => {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-    </Box>
-    </Modal>}
-</>
   );
 }
-export default LoginDetails;
+export default Login;
