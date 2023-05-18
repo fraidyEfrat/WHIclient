@@ -12,6 +12,7 @@ import RatingArticle from "./ratingArticle";
 import UnsignedRating from "./articleRating/unsignedRating";
 import ArticleComments from './btnComments/articleComments';
 import ArticleRead from './btnRead/articleRead';
+import UpdateDelete from '../articleRating/updateDelete/UpdateDelete';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -73,7 +74,7 @@ const SingleArticle = ({ article }) => {
           <Grid item xs={6} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-              {role == "ADMIN" ?  <Button >עריכה</Button> : <></>}
+              {role == "ADMIN" ?  <UpdateDelete idarticle={idarticle}/> : <></>}
               {/* ()=>{alert("כאן צריך להביא לעמוד עריכה כמו הוספה רק עם הפרטים")} */}
              
                 <Typography gutterBottom variant="subtitle1" component="div">
@@ -100,10 +101,10 @@ const SingleArticle = ({ article }) => {
           </Typography>
           <Grid item>
             <DisplayRating stars={stars} ></DisplayRating>
-             {role == "UNSIGNED" ? <UnsignedRating/> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} ></RatingArticle>} 
+             {role == "UNSIGNED" ? <UnsignedRating/> : <RatingArticle updateStarsAfterRating={updateStarsAfterRatingAndGetARticle} idarticle={idarticle} />} 
           </Grid>
           <Grid item>
-            <ArticleComments idarticle={idarticle}></ArticleComments>
+            <ArticleComments idarticle={idarticle}/>
      
               <Button onClick={()=>navigate(`/article/${idarticle}`)}>לקריאה>>></Button>
           
@@ -114,47 +115,3 @@ const SingleArticle = ({ article }) => {
   );
 }
 export default SingleArticle;
-
-{/* <Grid item>
-<DisplayRating stars2={stars} changeStars={changeStars} setChangeStars={setChangeStars} stars={rating}></DisplayRating>
-</Grid>
-<Grid item>
-<RatingArticle setStars={setStars} setChangeStars={setChangeStars} idarticle={idarticle} stars={stars}></RatingArticle>
-</Grid> */}
-//<CustomizedButton text={"View details"} onClick={(e)=>{handleClick(e)}}></CustomizedButton>
-
-
-// <Grid container spacing={2}>
-//         <Grid item xs={6} sm container>
-//           <Grid item xs container direction="column" spacing={2}>
-//             <Grid item xs>
-//               <Typography gutterBottom variant="subtitle1" component="div">
-//               title: {title}
-//               </Typography>
-//               <Grid item>
-//                 <ButtonBase sx={{ width: 128, height: 128 }}>
-//                     <Img alt={title} src={defaultImage} />
-//                 </ButtonBase>
-//               </Grid>
-//               <Typography variant="body2" gutterBottom>
-//               content: {content}
-//               </Typography>
-//               <Typography variant="body2" color="text.secondary">
-//               author: {author}
-//               </Typography>
-//             </Grid>
-//             <Grid item>
-//               <Typography sx={{ cursor: 'pointer' }} variant="body2">
-//                 {rating}
-//               </Typography>
-//             </Grid>
-//           </Grid>
-//           <Grid item>
-//             <DisplayRating stars={rating}></DisplayRating>
-//           </Grid>
-//           <Grid item>
-//             <RatingArticle articleId={idarticle}></RatingArticle>
-//           </Grid>
-//         </Grid>
-//       </Grid>
-//     </Paper>
