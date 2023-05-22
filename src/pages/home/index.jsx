@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import './home.css'
-
+import './home.css';
+import HeartListicle from '../images/HeartListicle.jpg';
+import heart from '../images/heart.jpg';
+import heartFead from '../images/heartFead.jpg'
 const Home = () => {
 
   return (<>
     <div style={{ paddingTop: "66px" }}>home</div>
+    <img src={HeartListicle} alt="Heart Listicle" style={{ width: '70%', height: '50%' }} />
     {/* <div id="featureBox"></div>
     <div style="position:relative; width:936px; height:0px; overflow:visible; z-index:20;" id="violator"><img src="//greensock.com/_img/HTML5_corner_banner.png" alt="HTML5" style="position:absolute; top:-5px; right:-5px;" /></div>
     <div class="feature" id="featureAnimation">

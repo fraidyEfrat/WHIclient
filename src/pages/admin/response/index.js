@@ -4,6 +4,11 @@ import axios from "axios";
 import { TableCell,Table,TableHead,TableRow,TableBody } from '@mui/material';
 import Request from './Request';
 import { useNavigate } from 'react-router-dom';
+import SubjectRoundedIcon from '@mui/icons-material/SubjectRounded';
+import AutorenewRoundedIcon from '@mui/icons-material/AutorenewRounded';
+import DateRangeRoundedIcon from '@mui/icons-material/DateRangeRounded';
+import DraftsRoundedIcon from '@mui/icons-material/DraftsRounded';
+import MarkEmailReadRoundedIcon from '@mui/icons-material/MarkEmailReadRounded';
 
 const UserRequestList = () => {
     const [requestList, setRequestList] = useState([]);
@@ -38,14 +43,14 @@ const UserRequestList = () => {
   return (   
     <>
     <div style={{ paddingTop: "66px" }}>הפניות שצריכות טיפול</div>
-    <Table sx={{ width: '50%' }} sortMode="multiple" size="small" >
-        <TableHead >
-            <TableCell align="right" >נושא</TableCell>
-            <TableCell align="right">סטטוס</TableCell>
-            <TableCell align="right">בקשה</TableCell>
-            <TableCell align="right" sortable >תגובה</TableCell>
-            <TableCell align="right" >תאריך</TableCell>
-        </TableHead>
+    <Table sx={{ width: '70%' }} sortMode="multiple" size="small" >
+    <TableHead>
+          <TableCell align="right"><SubjectRoundedIcon style={{ fontSize: '16px', marginRight: '5px' }} /><b><span style={{ fontSize: '16px' }}>נושא</span></b></TableCell>
+          <TableCell align="right"><AutorenewRoundedIcon style={{ fontSize: '16px', marginRight: '5px' }} /><b><span style={{ fontSize: '16px' }}>סטטוס</span></b></TableCell>
+          <TableCell align="right"><DraftsRoundedIcon style={{ fontSize: '16px', marginRight: '5px' }} /><b><span style={{ fontSize: '16px' }}>בקשה</span></b></TableCell>
+          <TableCell align="right" sortable><MarkEmailReadRoundedIcon style={{ fontSize: '16px', marginRight: '5px' }} /><b><span style={{ fontSize: '16px' }}>תגובה</span></b></TableCell>
+          <TableCell align="right"><DateRangeRoundedIcon style={{ fontSize: '16px', marginRight: '5px' }} /><b><span style={{ fontSize: '16px' }}>תאריך</span></b></TableCell>
+   </TableHead>
         {/* {userRequests?.length && userRequests.map((user_request)=>  <TableBody> */}
         {/* {.map((row) => ( */}
         <TableBody>
@@ -54,7 +59,7 @@ const UserRequestList = () => {
           onClick={()=>navigate(`/adminResponse/${user_request.iduser_request}` ,{ state: { iduser_request: user_request.iduser_request} })}
           key={"row.name"}
           >
-            <TableCell align="right">{user_request.subject}</TableCell>
+            <TableCell align="right" >{user_request.subject}</TableCell>
             <TableCell align="right" >{user_request.status}</TableCell>
             <TableCell align="right" sx={{maxWidth:200, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.request}</TableCell>
             <TableCell align="right" sx={{maxWidth:200, textOverflow:"ellipsis", whiteSpace:"nowrap", overflow:"hidden"}}>{user_request.response}</TableCell>

@@ -22,11 +22,11 @@ const UpBarUnsigned=()=>{
     sessionStorage.removeItem("token", "");
     setRole("UNSIGNED");
     return(<>
-     <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={()=>setRegister(true)} >
+     <Button  color="success"  sx={{marginRight:'7px'}} onClick={()=>setRegister(true)} >
             <PersonAddIcon />
             רישום
             </Button>
-            <Button variant="outlined" color="success" sx={{marginRight:'7px'}} onClick={()=>setLogin(true)} >
+            <Button  color="success" sx={{marginRight:'7px'}} onClick={()=>setLogin(true)} >
             <PersonAddIcon />
             כניסה
             </Button>
@@ -46,13 +46,7 @@ const UpBarUnsigned=()=>{
           )}
         </PopupState>
 
-    {/* <Button variant="outlined" color="success" sx={{marginRight:'7px'}} >
-    <PersonAddIcon />
-        רישום
-    </Button></>)
-    </Button> */}
-    {/* <Register></Register> */}
-    {/* <Login></Login> */}
+  
     
 
     </>)

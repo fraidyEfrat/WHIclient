@@ -61,7 +61,8 @@ const Login = () => {
     const res = await axios.post("http://localhost:3600/api/auth/login", { email, password }, {
       withCredentials: true,//in order to add cookies to api
     });
-    console.log(res.data);
+    console.log("res.data");
+    console.log(res.data.accessToken);
     sessionStorage.setItem("token", res.data.accessToken)
     sessionStorage.setItem("user name", res.data.user.firstName)
     sessionStorage.setItem("role", res.data.user.role)
@@ -138,10 +139,6 @@ const Login = () => {
               </Grid>
               <Grid item>
                 <NavLink to='/signUp' variant="body2"/>
-                {/* <NavLink to='/signUp' variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </NavLink>
-                </NavLink> */}
               </Grid>
             </Grid>
           </Box>

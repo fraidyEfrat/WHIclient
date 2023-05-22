@@ -66,7 +66,7 @@ const Register = () => {
    
          console.log("after await");
          console.log(res.data);
-         navigate("/login");
+         navigate("/Login");
        }catch(err){
          setErr(err.response.data?.message);
        }

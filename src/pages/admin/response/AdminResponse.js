@@ -73,17 +73,13 @@ console.log(idUserRequest)
     };
  
 return (
-  <div className="user-request-page" style={{paddingTop:"70px"}}>
-  <h1 style={{fontSize: 35}}>שליחת תגובה</h1>
-  {/* <TextField onChange={(e)=>{setRequest(e.target.value)}} type="text" placeholder=" נא לכתוב את השאלה כאן " ></TextField><br/><br/> */}
+  <div className="user-request-page" style={{paddingTop:"70px",textAlign:'center'}}>
+  <h1 style={{fontSize: 35,textAlign:'center'}}>שליחת תגובה</h1>
   <div className="p-float-label">
-            <InputTextarea id="request"  onChange={(e) => setResponse(e.target.value)} rows={10} cols={50} placeholder=" נא לכתוב את התגובה כאן "/>
-   </div>
-   {/* <Quill setContent={setResponse}></Quill> */}
-  <Button style={{fontSize: 20}} onClick={handleClick}>שליחת התגובה</Button> <br/><br/>
- 
+        <InputTextarea id="request"  onChange={(e) => setResponse(e.target.value)} rows={10} cols={50} placeholder=" נא לכתוב את התגובה כאן "/>
   </div>
-  
+  <Button style={{fontSize: 20}} onClick={handleClick}>שליחת התגובה</Button> <br/><br/>
+  </div>
   )}
 
 

@@ -51,15 +51,17 @@ function Routing() {
       const paths = {
             "UNSIGNED" : [ {url : "/", title: "דף הבית", element: <Home/>,icon:<HomeIcon/>},
             {url : "/information", title: "אודות", element : <Information/>,icon:<AboutIcon/>},
-            {url : "/register", title: "הרשמה", element : <Register/>,icon:<HomeIcon/>},
-            {url : "/login", title: "כניסה", element: <Login/>,icon:<HomeIcon/>},
+            // {url : "/register", title: "הרשמה", element : <Register/>,icon:<HomeIcon/>},
+            // {url : "/login", title: "כניסה", element: <Login/>,icon:<HomeIcon/>},
             {url : "/articleRating", title: "מאמרים", element: <ArticlesList/>,icon:<ArticleIcon/>},
             {url : "/courses", title: "קורסים", element: <Courses/>,icon:<CourseIcon/>},],
             "USER" : [ {url : "/", title: "דף הבית", element: <Home/>,icon:<HomeIcon/>},
             {url : "/information", title: "אודות", element : <Information/>,icon:<AboutIcon/>},
             {url : "/articleRating", title: "מאמרים", element: <ArticlesList/>,icon:<ArticleIcon/>},
             {url : "/courses", title: "קורסים", element: <Courses/>,icon:<CourseIcon/>},
-            {url:"/personalArea",title:"אזור אישי",element:<PersonalArea/>,icon:<Personal/>} ],
+            {url:"/personalArea",title:"אזור אישי",element:<PersonalArea/>,icon:<Personal/>},
+            // {url : "/logout", title: "logout", element: <Logout/>,icon:<Personal/>}, 
+      ],
             "ADMIN" : [ {url : "/", title: "דף הבית", element: <Home/>,icon:<HomeIcon/>},
             {url : "/admin", title: "ניהול", element : <Admin/>,icon:<ManegmentIcon/>},
             {url : "/information", title: "אודות", element : <Information/>,icon:<AboutIcon/>},
@@ -75,7 +77,7 @@ function Routing() {
       const currPaths = paths[role];
      
       return(
-            <>  <AppBar position="fixed" sx={{backgroundColor: '#a3fdd8' }} >
+            <>  <AppBar position="fixed" sx={{backgroundColor: '#fff' }} >
             <Container maxWidth="xl">
                   <Toolbar  image={defaultImage}>
                         <img src="/logo.jpg" style={{height:'50px', borderRadius:'190px 190px 0px 0px'}}/>

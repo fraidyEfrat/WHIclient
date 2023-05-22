@@ -1,5 +1,5 @@
 body {
-  background-color: #fcffff;
+  background-color: #e9eeeec0;
   color: #00c2abc1;
   font-size: 12px;
 }
@@ -32,5 +32,5 @@ body {
 .main-nav a.active {
   transition: all 0.3s;
   background-color: #fff;
-  color: black
+  color: rgb(0, 0, 0)
 }
