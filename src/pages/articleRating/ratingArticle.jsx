@@ -11,7 +11,7 @@ const RatingArticle = ({ idarticle, updateStarsAfterRating }) => {
     //TODO :: BY DEFAULT SHOULD SHOW RATING FROM SERVER
     const [stars, setStars] = useState(0);
     const [opinion, setOpinion] = useState('');
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     const handleClickOpen = (event) => {
       //event.stopPropagation();
       setOpen(true);

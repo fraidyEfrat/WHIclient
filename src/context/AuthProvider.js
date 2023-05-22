@@ -6,7 +6,7 @@ const AuthProvider = (props) => {
     const [role, setRole] = useState("UNSIGNED");
 
     useEffect(() => {
-        const storedRole = sessionStorage.getItem('role');
+        const storedRole = localStorage.getItem('role');
         if(storedRole){
             setRole(storedRole);
         }

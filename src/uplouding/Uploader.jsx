@@ -8,7 +8,7 @@ import { Button } from "@mui/material";
 import ImageIcon from '@mui/icons-material/Image';
 
 
-const token = sessionStorage.getItem("token");
+const token = localStorage.getItem("token");
 var idFolder;
 const AddFile = async (idFolder)=>{
   const { id } = useParams();

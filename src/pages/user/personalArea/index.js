@@ -4,7 +4,7 @@ import UserRequest from '../request';
 import RequestList from './RequestList';
 
 const PersonalArea=()=>{
-  const userName=sessionStorage.getItem("user name");
+  const userName=localStorage.getItem("user name");
     return(<>
       <br></br><br></br><br></br>
      

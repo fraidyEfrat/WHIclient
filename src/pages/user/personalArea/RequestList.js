@@ -35,7 +35,7 @@ const RequestList = () => {
   const navigate = useNavigate()
   useEffect(() => {
     async function fetchData() {
-      const token = sessionStorage.getItem("token");
+      const token = localStorage.getItem("token");
       const config = {
         headers: {
           'Authorization': 'Bearer ' + token

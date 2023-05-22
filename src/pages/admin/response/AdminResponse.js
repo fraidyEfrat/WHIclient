@@ -28,7 +28,7 @@ console.log("iduser_request:",iduser_request);
 useEffect(()=>{
 f()
 },[])
-const token = sessionStorage.getItem("token");
+const token = localStorage.getItem("token");
 const config = {
   headers: {
     'Authorization': 'Bearer ' + token

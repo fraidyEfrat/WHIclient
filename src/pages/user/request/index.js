@@ -16,7 +16,7 @@ const UserRequest = ({name,age}) => {
   const response="";
 
 
-  //const id = JSON.parse(sessionStorage.getItem('user')).userId;
+  //const id = JSON.parse(localStorage.getItem('user')).userId;
   
 
    const handleClick=async ()=>{
@@ -24,7 +24,7 @@ const UserRequest = ({name,age}) => {
       try {  
           let config = {
               headers: {
-                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
               }
           } 
 

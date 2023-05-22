@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
   const Logout = () => { 
     const navigate = useNavigate();
     const{setRole}=useContext(AuthContext);
-    sessionStorage.removeItem("token", "");
+    localStorage.removeItem("token", "");
     setRole("UNSIGNED");
     navigate("/");
   };

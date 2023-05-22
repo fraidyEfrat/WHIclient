@@ -19,7 +19,7 @@ const UpBarUnsigned=()=>{
     const[login,setLogin]=useState(false);
     const[register,setRegister]=useState(false);
 
-    sessionStorage.removeItem("token", "");
+    localStorage.removeItem("token", "");
     setRole("UNSIGNED");
     return(<>
      <Button  color="success"  sx={{marginRight:'7px'}} onClick={()=>setRegister(true)} >

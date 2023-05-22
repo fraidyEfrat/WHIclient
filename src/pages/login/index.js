@@ -34,9 +34,9 @@ const Login = () => {
       withCredentials: true,//in order to add cookies to api
     });
     console.log(res.data);
-    sessionStorage.setItem("token", res.data.accessToken)
-    sessionStorage.setItem("user name", res.data.user.firstName)
-    sessionStorage.setItem("role", res.data.user.role)
+    localStorage.setItem("token", res.data.accessToken)
+    localStorage.setItem("user name", res.data.user.firstName)
+    localStorage.setItem("role", res.data.user.role)
     console.log(res.data.accessToken);
     setRole(res.data.user.role);
     role=="USER"?navigate("/personalArea"): navigate("/admin");

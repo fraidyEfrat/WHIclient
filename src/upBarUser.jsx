@@ -15,7 +15,7 @@ const UpBarUser=()=>{
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const{setRole}=useContext(AuthContext);
-    const userName=sessionStorage.getItem("user name");
+    const userName=localStorage.getItem("user name");
 
     const handleChange = (event) => {
       setAuth(event.target.checked);
@@ -32,7 +32,7 @@ const UpBarUser=()=>{
     const handleLogout=()=>{
     
         console.log("handleLogout");
-        sessionStorage.removeItem("token", "");
+        localStorage.removeItem("token", "");
         setRole("UNSIGNED");
         navigate("/home");
     };

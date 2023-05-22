@@ -21,7 +21,7 @@ const AddArticle = () => {
   const handleAddArticle = async (e) => {
     setErr("");
     e.preventDefault();
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     const config = {
       headers: {
         'Authorization': 'Bearer ' + token
