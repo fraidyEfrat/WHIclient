@@ -39,7 +39,7 @@ const CourseList = () => {
           padding: '8px',
         }}
       >
-        מאמרים
+        קורסים
       </div>
     </div>
       </Card>
