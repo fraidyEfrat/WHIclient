@@ -12,7 +12,7 @@ import RatingArticle from "./ratingArticle";
 import UnsignedRating from "./articleRating/unsignedRating";
 import ArticleComments from './btnComments/articleComments';
 import ArticleRead from './btnRead/articleRead';
-import UpdateDelete from '../articleRating/updateDelete/UpdateDelete';
+import Update from '../articleRating/update';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -21,6 +21,7 @@ import { AuthContext } from '../../context/authContex'
 import { useContext } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Delete from '../articleRating/delete';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -74,7 +75,7 @@ const SingleArticle = ({ article }) => {
           <Grid item xs={6} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-              {role == "ADMIN" ?  <UpdateDelete idarticle={idarticle}/> : <></>}
+              {role == "ADMIN" ?  <><Update idarticle={idarticle}/> <Delete idarticle={idarticle}/> </>: <></>}
               {/* ()=>{alert("כאן צריך להביא לעמוד עריכה כמו הוספה רק עם הפרטים")} */}
              
                 <Typography gutterBottom variant="subtitle1" component="div">

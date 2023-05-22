@@ -61,8 +61,7 @@ const Login = () => {
     const res = await axios.post("http://localhost:3600/api/auth/login", { email, password }, {
       withCredentials: true,//in order to add cookies to api
     });
-    console.log("res.data");
-    console.log(res.data.accessToken);
+    console.log(res.data);
     localStorage.setItem("token", res.data.accessToken)
     localStorage.setItem("user name", res.data.user.firstName)
     localStorage.setItem("role", res.data.user.role)

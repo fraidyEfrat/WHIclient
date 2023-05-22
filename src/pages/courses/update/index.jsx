@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const UpdateDelete=(idarticle)=>{
+const Update=({idcourse})=>{
     const navigate=useNavigate()
 return(
-    <Button onClick={()=>navigate(`/addArticle`)}>עריכה</Button>
+    <Button onClick={()=>navigate(`/updateCourse/${idcourse}`)}>עריכה</Button>
 )
 }
-export default UpdateDelete
+export default Update

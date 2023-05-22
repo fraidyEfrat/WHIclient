@@ -39,7 +39,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import ManegmentIcon from '@mui/icons-material/ManageAccounts';
 import Personal from '@mui/icons-material/Face3';
 import EmailIcon from '@mui/icons-material/ForwardToInbox';
-import AddArticle from './pages/admin/addArticle'
+import AddArticle from './pages/admin/addArticle';
+import UpdateArticle from './pages/articleRating/update/Update';
+import UpdateCourse from './pages/courses/update/Update';
 
 
 // {url : "/request", title: "בקשה", element : <Request/>,icon:<HomeIcon/>},
@@ -51,8 +53,6 @@ function Routing() {
       const paths = {
             "UNSIGNED" : [ {url : "/", title: "דף הבית", element: <Home/>,icon:<HomeIcon/>},
             {url : "/information", title: "אודות", element : <Information/>,icon:<AboutIcon/>},
-            // {url : "/register", title: "הרשמה", element : <Register/>,icon:<HomeIcon/>},
-            // {url : "/login", title: "כניסה", element: <Login/>,icon:<HomeIcon/>},
             {url : "/articleRating", title: "מאמרים", element: <ArticlesList/>,icon:<ArticleIcon/>},
             {url : "/courses", title: "קורסים", element: <Courses/>,icon:<CourseIcon/>},],
             "USER" : [ {url : "/", title: "דף הבית", element: <Home/>,icon:<HomeIcon/>},
@@ -101,6 +101,8 @@ function Routing() {
                         <Route path = {"/showComments"} element = {<ShowComments/>}></Route>
                         <Route path = {"/response"} element = {<Response/>}></Route>
                         <Route path = {"/addArticle"} element = {<AddArticle/>}></Route>
+                        <Route path = {"/updateArticle/:idarticle"} element = {<UpdateArticle/>}></Route>
+                        <Route path = {"/updateCourse/:idcourse"} element = {<UpdateCourse/>}></Route>
                         <Route path = {"/addCourse"} element = {<AddCourse/>}></Route>
                         <Route path = {"/adminResponse/:idUserRequest"} element = {<AdminResponse/>}></Route>
                         <Route path = {"/request"} element = {<Request/>}></Route>

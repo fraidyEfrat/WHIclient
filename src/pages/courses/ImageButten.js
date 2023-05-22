@@ -12,8 +12,13 @@ import CourseRegister from './CourseRegister';
 import Woman2Icon from '@mui/icons-material/Woman2';
 import PlaceIcon from '@mui/icons-material/Place';
 import CourseDetails from './courseDetails';
+import { AuthContext } from '../../context/authContex'
+import { useContext } from "react";
+import Update from './update';
+import Delete from './delete';
 
 const ImgButton = styled(ButtonBase)(({ theme }) => ({
+
   // position: 'relative',
   height: 200,
   [theme.breakpoints.down('sm')]: {
@@ -79,7 +84,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 
 export default function ImageButten({ course }) {
   const { idcourse, lecturer, maxRegisters, cost, numLecture, idsubject, picture, address, minage, maxage, topic } = course
-  console.log("✔✔🐱‍🚀", picture)
+  const { role } = useContext(AuthContext);
   return (
     <ImgButton
       focusRipple
@@ -96,6 +101,7 @@ export default function ImageButten({ course }) {
           // component="span"
           variant="subtitle1"
           color="inherit"
+          fontSize={20}
           sx={{
             position: 'relative',
             p: 4,
@@ -106,14 +112,14 @@ export default function ImageButten({ course }) {
           {topic}
           <br></br>
           {lecturer}
-          <br></br>
+          <br/>
 
         </Typography>
 
         <PopupState variant="popover" popupId="demo-popup-popover">
           {(popupState) => (
             <div>
-              <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
+              <br/>
               <CourseRegister courseDetails={null}></CourseRegister>
             </div>
           )}
@@ -122,8 +128,10 @@ export default function ImageButten({ course }) {
         <PopupState variant="popover" popupId="demo-popup-popover">
           {(popupState) => (
             <div>
-              <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
+              <br/>
          <CourseDetails course={course}></CourseDetails>
+         <br/><br/>
+         {role == "ADMIN" ?  <><Update idcourse={idcourse}/> <Delete idcourse={idcourse}/> </>: <></>}
             </div>
           )}
         </PopupState>
