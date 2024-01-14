@@ -9,8 +9,6 @@ import "./App.css"
 
 function App() {
 
-  
-
   return (
     <div className="App">
       {/* <AuthContext.Provider value = {{role, setRole}}> */}

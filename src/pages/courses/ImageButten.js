@@ -33,9 +33,7 @@ const ImgButton = styled(ButtonBase)(({ theme }) => ({
     '& .MuiImageMarked-root': {
       opacity: 0,
     },
-    // '& .MuiTypography-root': {
-    //   border: '4px solid currentColor',
-    // },
+
   },
 }));
 

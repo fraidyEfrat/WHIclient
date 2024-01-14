@@ -31,7 +31,7 @@ const RegisterDetails = () => {
                     <label htmlFor="cvv"> CVC:  </label><br></br>
                     <input type="password" id="cvv" name="cvv" placeholder="---" required />
                 </div><br></br>
-                <button type="submit">רישום ותשלום</button>
+                <button type="submit">רישום ותשלום✔️</button>
             </form>
         </div>
     );

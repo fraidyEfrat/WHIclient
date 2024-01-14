@@ -25,7 +25,6 @@ const handleSearchSelection=(search)=>{
     fetchData();
   }, []);
 
-   // Filter courses based on the search term
    const filteredCourses = courses.filter((course) => {
     console.log("🏖️🏖️🏖️🏖️");
     console.log(search);
