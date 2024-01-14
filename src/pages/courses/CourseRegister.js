@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // import Register from '../register';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import Register from '../register/index2';
+import RegisterDetails from './RegisterDetails';
 
 const CourseRegister = ({closeDetails}) => {
 
@@ -69,7 +70,7 @@ const[flag,setFlag]=useState(false);
           >
             <DialogContent>
               <DialogContentText id="alert-dialog-description">
-              הרשמה לקורס
+              <RegisterDetails></RegisterDetails>
               </DialogContentText>
             </DialogContent>
             <DialogActions>

@@ -72,15 +72,6 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
   transition: theme.transitions.create('opacity'),
 }));
 
-// const ImageMarked = styled('span')(({ theme }) => ({
-//   height: 3,
-//   width: 18,
-//   backgroundColor: theme.palette.common.white,
-//   position: 'absolute',
-//   bottom: -2,
-//   left: 'calc(50% - 9px)',
-//   transition: theme.transitions.create('opacity'),
-// }));
 
 export default function ImageButten({ course }) {
   const { idcourse, lecturer, maxRegisters, cost, numLecture, idsubject, picture, address, minage, maxage, topic } = course
@@ -109,6 +100,9 @@ export default function ImageButten({ course }) {
             pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
           }}
         >
+          <div style={{ display: 'flex' }}>
+              {role == "ADMIN" ? <><Update idcourse={idcourse} /> <Delete idcourse={idcourse} /> </> : <></>}
+              </div>
           {topic}
           <br></br>
           {lecturer}
@@ -118,20 +112,21 @@ export default function ImageButten({ course }) {
 
         <PopupState variant="popover" popupId="demo-popup-popover">
           {(popupState) => (
+            <>
             <div>
-              <br/>
-              <CourseRegister courseDetails={null}></CourseRegister>
-            </div>
+                <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
+                <CourseRegister courseDetails={null}></CourseRegister>
+              </div></>
           )}
         </PopupState>
 
         <PopupState variant="popover" popupId="demo-popup-popover">
           {(popupState) => (
             <div>
-              <br/>
+          <br></br><br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br><br></br>
          <CourseDetails course={course}></CourseDetails>
          <br/><br/>
-         {role == "ADMIN" ?  <><Update idcourse={idcourse}/> <Delete idcourse={idcourse}/> </>: <></>}
+         {/* {role == "ADMIN" ?  <><Update idcourse={idcourse}/> <Delete idcourse={idcourse}/> </>: <></>} */}
             </div>
           )}
         </PopupState>

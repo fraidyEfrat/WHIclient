@@ -1,0 +1,111 @@
+
+.css-5wly58-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell {
+    border: 5px;
+    background-color: rgb(230, 230, 230) ;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+    border-bottom: 5px solid #FFFF !important;
+    border-right: 5px solid #FFFF !important;
+    Padding: 0px !important;
+    width: 0px !important;
+    min-height: '0px!important';
+}
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    border: "5px";
+    /* backgroundColor: "rgb(220,220,220)!important",
+    paddingTop: '0px!important',
+    paddingBottom: '0px!important',
+    paddingRight: '7px!important',
+    paddingLeft: '0px!important', borderBottom: '5px solid #FFFF!important',
+    borderRight: '5px solid #FFFF!important',
+    borderLeftStyle: "solid",
+    borderLeftColor: props.color,
+    padding: "0px!important", */
+    min-height: 30px;
+    max-height: 30px;
+    height: 30px!important;
+    /* width: "1136px!important",
+    opacity: "0.4",
+    color: "black!important",
+    marginBottom: "0px!important",
+    textAlign: 'left!important',
+    justifyContent: 'left!important',
+    top: ((paginationModel.pageSize * 30) - 20) + 'px',
+    left: '-5px!important' */
+  }
+  .css-5wly58-MuiDataGrid-root .MuiDataGrid-row {
+
+    min-height: 30px!important;
+    max-height: 30px!important;
+}
+.css-5wly58-MuiDataGrid-root .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight)>.MuiDataGrid-cell {
+
+    min-height: 30px!important;
+    max-height: 30px!important;
+}
+.css-5wly58-MuiDataGrid-root .MuiDataGrid-row {
+    /* border: 5px;
+    border-left-style: solid;
+    border-left-color: #EE696A !important;
+    padding-bottom: 5px;
+    padding: 0px !important;
+    height: 10px !important;
+    background-color: "white!important";
+    border-bottom: 5px solid #FFFF !important */
+}
+
+.css-3g37jk {
+    height: 360px !important;
+    width: 100% !important;
+}
+
+.css-s1v7zr-MuiDataGrid-virtualScrollerRenderZone {
+    position: absolute;
+    /* top: 40px !important; */
+}
+
+.css-128fb87-MuiDataGrid-toolbarContainer {
+    top: 25px !important;
+    position: absolute;
+}
+
+
+.css-5wly58-MuiDataGrid-root {
+    border-style: unset !important;
+}
+
+.css-189b1kn {
+    padding-top: 0px!important;
+}
+
+.css-1iyq7zh-MuiDataGrid-columnHeaders {
+    border-bottom: 0px!important;
+    border-bottom: 1px unset!important;} 
+
+    .green{
+        background-color: #E5F6E0!important;
+        border: 5px;
+          padding-left: 0px!important;
+          border-left-style: solid;
+          border-left-color: #E5F6E0!important
+          
+    }
+    .blue{
+        background-color: #6794CF!important;
+    }
+    .orang{
+        background-color: #FBA993!important;
+    }
+    .red{
+        background-color: #CB706D!important;
+    }
+    .yellow{
+        background-color: #FAE282!important;
+    }
+    /* .css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover {
+        background-color: transparent;
+        position: absolute;
+        left: 0px;
+        top: 90px;} */

@@ -7,10 +7,15 @@ import Course from './Course';
 import ImageButten from './ImageButten';
 import sunset from '../images/sunset.jpg';
 import {AppBar, Toolbar, Box, Avatar, Card} from '@mui/material';
+import AutocompleteComponent from '../../components/AutocompleteComponentProps ';
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
+  const [search,setSearch] = useState(null);
 
+const handleSearchSelection=(search)=>{
+  setSearch(search);
+}
   useEffect(() => {
     async function fetchData() {
       const { data: _courses } = await axios.get("http://localhost:3600/api/course");
@@ -19,6 +24,14 @@ const CourseList = () => {
     }
     fetchData();
   }, []);
+
+   // Filter courses based on the search term
+   const filteredCourses = courses.filter((course) => {
+    console.log("🏖️🏖️🏖️🏖️");
+    console.log(search);
+    if (!search) return true; // If search is empty, show all courses
+    return course.topic.includes(search);
+  });
 
   return (
     <>
@@ -45,11 +58,15 @@ const CourseList = () => {
       </Card>
       </AppBar>
       <div style={{ paddingTop: "66px" }}>
-        courses---
         <Grid container spacing={3}>
-          {courses?.length && courses.map((course) => {
-            return <><ImageButten course={course} /> </>
-          })}
+        <AutocompleteComponent path="course" searchType="search" setSearch={handleSearchSelection}/>
+        {filteredCourses?.length ? (
+            filteredCourses.map((course) => {
+              return <ImageButten course={course} />;
+            })
+          ) : (
+            <p>No courses found.</p>
+          )}
         </Grid>
       </div>
     </>

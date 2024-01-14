@@ -9,6 +9,7 @@ import React from "react";
 import { useContext } from "react";
 import { AuthContext } from './context/authContex'
 import { useNavigate } from "react-router-dom";
+import { colors } from "@mui/material";
 
 const UpBarUser=()=>{
     const navigate=useNavigate();
@@ -38,7 +39,7 @@ const UpBarUser=()=>{
     };
 
     const handlePersonalArea=()=>{
-        navigate("/request");
+        navigate("/personalArea");
     };
 
 return(
@@ -50,11 +51,11 @@ return(
     aria-controls="menu-appbar"
     aria-haspopup="true"
     onClick={handleMenu}
-    color="inherit"
+    color="green"
     >
     <AccountCircle />
     </IconButton>
-    {userName}
+    <p style={{ color: 'gray' }}>{userName}</p>
     <Menu
     id="menu-appbar"
     anchorEl={anchorEl}

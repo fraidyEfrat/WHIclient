@@ -80,7 +80,7 @@ function Routing() {
             <>  <AppBar position="fixed" sx={{backgroundColor: '#fff' }} >
             <Container maxWidth="xl">
                   <Toolbar  image={defaultImage}>
-                        <img src="/logo.jpg" style={{height:'50px', borderRadius:'190px 190px 0px 0px'}}/>
+                        <img src="/MyLogo.png" style={{height:'50px', borderRadius:'190px 190px 0px 0px'}}/>
                   <Stack direction="row" spacing={5} style={{ marginRight: 'auto', marginLeft: 'auto'}}>
                         {
                               currPaths.map((currPath) => <Button  color="success" component={Link} to={currPath.url}>{currPath.icon}{currPath.title}</Button>) 
